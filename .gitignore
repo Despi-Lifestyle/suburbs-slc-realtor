@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Claude
+.claude/
+
+# OS
+Thumbs.db

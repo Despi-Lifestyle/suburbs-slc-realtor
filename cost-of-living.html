@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utah Cost of Living Snapshot | Natalie Griffith</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--green:#2E7D32;--red:#C62828;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px;position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:500}
+        .back-link:hover{color:var(--gold-dark)}
+        .container{max-width:900px;margin:0 auto;padding:0 24px}
+        .hero{padding:60px 24px 40px;text-align:center;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .badge{display:inline-block;background:#E8F5E9;color:var(--green);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+        .hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:12px}
+        .hero h1 em{color:var(--gold);font-style:italic}
+        .hero p{color:var(--warm-gray);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7}
+        .content{padding:56px 24px 80px}
+        .section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .section-label::after{content:'';width:40px;height:1.5px;background:var(--gold)}
+        .section-title{font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px}
+        .section-desc{color:var(--warm-gray);font-size:0.9rem;margin-bottom:28px;line-height:1.6}
+        .comparison-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:48px}
+        @media(min-width:640px){.comparison-grid{grid-template-columns:1fr 1fr}}
+        .cost-card{background:var(--white);border-radius:12px;padding:28px 24px;border:1px solid rgba(0,0,0,0.05)}
+        .cost-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+        .cost-card h3{font-family:var(--font-display);font-size:1.1rem}
+        .cost-card-badge{font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:4px}
+        .badge-lower{background:#E8F5E9;color:var(--green)}
+        .badge-higher{background:#FFEBEE;color:var(--red)}
+        .badge-similar{background:var(--light-warm);color:var(--warm-gray)}
+        .cost-bars{display:flex;flex-direction:column;gap:12px}
+        .cost-bar-item label{display:flex;justify-content:space-between;font-size:0.78rem;color:var(--slate);margin-bottom:4px;font-weight:500}
+        .cost-bar-track{height:8px;background:var(--light-warm);border-radius:4px;overflow:hidden;position:relative}
+        .cost-bar-fill{height:100%;border-radius:4px;transition:width 1s ease}
+        .bar-utah{background:var(--gold)}
+        .bar-national{background:rgba(0,0,0,0.15);position:absolute;top:0;height:100%;border-right:2px dashed var(--slate);opacity:0.5}
+        .big-number-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:48px}
+        .big-number{background:var(--white);border-radius:12px;padding:28px 24px;border:1px solid rgba(0,0,0,0.05);text-align:center}
+        .big-number .number{font-family:var(--font-display);font-size:2.2rem;color:var(--gold-dark);margin-bottom:4px}
+        .big-number .label{font-size:0.78rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.06em}
+        .note-box{background:var(--white);border-radius:12px;padding:24px 28px;border-left:4px solid var(--gold);margin-bottom:48px}
+        .note-box h4{font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+        .note-box p{font-size:0.85rem;color:var(--slate);line-height:1.65}
+        .suburb-costs{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.05);margin-bottom:48px}
+        .suburb-cost-header{background:var(--black);color:var(--white);padding:16px 24px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+        .suburb-cost-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:14px 24px;border-bottom:1px solid rgba(0,0,0,0.04);font-size:0.88rem;align-items:center}
+        .suburb-cost-row:nth-child(even){background:var(--light-warm)}
+        .suburb-cost-row .name{font-weight:600;color:var(--black)}
+        .suburb-cost-row .value{color:var(--slate)}
+        .cta-section{text-align:center;padding:48px 24px;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.05)}
+        .cta-section h2{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
+        .cta-section p{color:var(--warm-gray);font-size:0.9rem;margin-bottom:24px}
+        .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
+        .cta-btn:hover{background:var(--gold-dark)}
+        .footer{padding:40px 24px;text-align:center;margin-top:60px}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
+        <a href="../index.html" class="back-link">← All Resources</a>
+    </div></nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Free — No Signup Required</div>
+            <h1>Utah <em>Cost of Living</em> Snapshot</h1>
+            <p>How Salt Lake City suburbs compare to national averages — housing, groceries, utilities, transportation, and more.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="big-number-grid reveal">
+                <div class="big-number"><div class="number">3.6%</div><div class="label">Lower than national average overall</div></div>
+                <div class="big-number"><div class="number">$525K</div><div class="label">Median home price (SLC suburbs)</div></div>
+                <div class="big-number"><div class="number">$1,650</div><div class="label">Average monthly rent (2BR)</div></div>
+                <div class="big-number"><div class="number">4.85%</div><div class="label">State income tax (flat rate)</div></div>
+            </div>
+
+            <div class="section-label reveal">Category Breakdown</div>
+            <h2 class="section-title reveal">How Utah stacks up</h2>
+            <p class="section-desc reveal">See how key cost categories in the SLC metro compare to the national average. Green means you're saving money.</p>
+
+            <div class="comparison-grid">
+                <div class="cost-card reveal">
+                    <div class="cost-card-header"><h3>Housing</h3><span class="cost-card-badge badge-similar">At Average</span></div>
+                    <div class="cost-bars">
+                        <div class="cost-bar-item"><label><span>Utah (SLC suburbs)</span><span>$525K median</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:72%"></div></div></div>
+                        <div class="cost-bar-item"><label><span>National Average</span><span>$430K median</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:60%;opacity:0.4"></div></div></div>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--warm-gray);margin-top:12px;line-height:1.5">Housing runs above the national median but significantly below comparable western metros like Denver ($590K), Portland ($530K), or anywhere in California.</p>
+                </div>
+                <div class="cost-card reveal">
+                    <div class="cost-card-header"><h3>Groceries</h3><span class="cost-card-badge badge-lower">4% Lower</span></div>
+                    <div class="cost-bars">
+                        <div class="cost-bar-item"><label><span>Utah</span><span>$380/mo avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:58%"></div></div></div>
+                        <div class="cost-bar-item"><label><span>National Average</span><span>$396/mo avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:62%;opacity:0.4"></div></div></div>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--warm-gray);margin-top:12px;line-height:1.5">Groceries are slightly below average thanks to major retailers like WinCo, Costco, and local chains like Harmons and Smith's throughout the suburbs.</p>
+                </div>
+                <div class="cost-card reveal">
+                    <div class="cost-card-header"><h3>Utilities</h3><span class="cost-card-badge badge-lower">8% Lower</span></div>
+                    <div class="cost-bars">
+                        <div class="cost-bar-item"><label><span>Utah</span><span>$145/mo avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:50%"></div></div></div>
+                        <div class="cost-bar-item"><label><span>National Average</span><span>$158/mo avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:56%;opacity:0.4"></div></div></div>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--warm-gray);margin-top:12px;line-height:1.5">Utah benefits from affordable natural gas and electricity. Expect higher heating bills in winter (Dec-Feb) and cooling costs in summer (Jul-Aug).</p>
+                </div>
+                <div class="cost-card reveal">
+                    <div class="cost-card-header"><h3>Transportation</h3><span class="cost-card-badge badge-lower">5% Lower</span></div>
+                    <div class="cost-bars">
+                        <div class="cost-bar-item"><label><span>Utah</span><span>$9,200/yr avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:55%"></div></div></div>
+                        <div class="cost-bar-item"><label><span>National Average</span><span>$9,700/yr avg</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:59%;opacity:0.4"></div></div></div>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--warm-gray);margin-top:12px;line-height:1.5">Gas prices tend to be below average. TRAX light rail connects many south valley suburbs to downtown SLC. FrontRunner commuter rail reaches north.</p>
+                </div>
+            </div>
+
+            <div class="section-label reveal">By Suburb</div>
+            <h2 class="section-title reveal">What your dollar buys in each suburb</h2>
+            <p class="section-desc reveal">Median home prices vary significantly across the 9 suburbs. Here's how they stack up.</p>
+
+            <div class="suburb-costs reveal">
+                <div class="suburb-cost-header"><span>Suburb</span><span>Median Price</span><span>Price/SqFt</span><span>Property Tax</span></div>
+                <div class="suburb-cost-row"><span class="name">Millcreek</span><span class="value">$420K - $600K</span><span class="value">$230 - $280</span><span class="value">0.58%</span></div>
+                <div class="suburb-cost-row"><span class="name">Herriman</span><span class="value">$450K - $600K</span><span class="value">$190 - $240</span><span class="value">0.62%</span></div>
+                <div class="suburb-cost-row"><span class="name">Riverton</span><span class="value">$450K - $620K</span><span class="value">$200 - $250</span><span class="value">0.60%</span></div>
+                <div class="suburb-cost-row"><span class="name">Sandy</span><span class="value">$480K - $680K</span><span class="value">$220 - $290</span><span class="value">0.59%</span></div>
+                <div class="suburb-cost-row"><span class="name">Bluffdale</span><span class="value">$480K - $650K</span><span class="value">$195 - $245</span><span class="value">0.61%</span></div>
+                <div class="suburb-cost-row"><span class="name">Holladay</span><span class="value">$500K - $800K</span><span class="value">$240 - $320</span><span class="value">0.57%</span></div>
+                <div class="suburb-cost-row"><span class="name">South Jordan</span><span class="value">$550K - $700K</span><span class="value">$210 - $270</span><span class="value">0.60%</span></div>
+                <div class="suburb-cost-row"><span class="name">Cottonwood Hts</span><span class="value">$550K - $750K</span><span class="value">$250 - $310</span><span class="value">0.58%</span></div>
+                <div class="suburb-cost-row"><span class="name">Draper</span><span class="value">$600K - $850K</span><span class="value">$240 - $330</span><span class="value">0.61%</span></div>
+            </div>
+
+            <div class="note-box reveal">
+                <h4>What about vs. where you live now?</h4>
+                <p>These numbers tell part of the story, but the real question is how Utah compares to <em>your</em> current location. If you're coming from California, the Pacific Northwest, or the East Coast, you'll likely see significant savings. From the Midwest or South, costs may be similar or slightly higher for housing — but you get world-class outdoor recreation and a booming job market in the deal. Want a personalized comparison? Reach out and I'll run the numbers for your specific situation.</p>
+            </div>
+
+            <div class="cta-section reveal">
+                <h2>Want the full picture?</h2>
+                <p>The Relocation Guide breaks down every suburb in detail — prices, schools, lifestyle, and more.</p>
+                <a href="../relocation-guide/" class="cta-btn">Get the Free Relocation Guide →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+
+    <script>
+        const reveals=document.querySelectorAll('.reveal');
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        reveals.forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>

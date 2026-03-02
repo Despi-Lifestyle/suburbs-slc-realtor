@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Guide is Ready! | Natalie Griffith</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px}
+        .card{background:var(--white);border-radius:20px;padding:56px 48px;max-width:560px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04)}
+        .success-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:scaleIn 0.5s ease both}
+        .success-icon svg{width:36px;height:36px;fill:var(--white)}
+        .card h1{font-family:var(--font-display);font-size:1.8rem;margin-bottom:12px;animation:fadeInUp 0.6s 0.2s ease both}
+        .card p{color:var(--warm-gray);font-size:0.95rem;line-height:1.7;margin-bottom:28px;animation:fadeInUp 0.6s 0.3s ease both}
+        .download-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--white);padding:16px 36px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s,transform 0.2s;animation:fadeInUp 0.6s 0.4s ease both}
+        .download-btn:hover{background:var(--gold-dark);transform:translateY(-2px)}
+        .download-btn svg{width:20px;height:20px;fill:currentColor}
+        .next-steps{margin-top:36px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.06);animation:fadeInUp 0.6s 0.5s ease both}
+        .next-steps h3{font-family:var(--font-display);font-size:1.1rem;margin-bottom:8px}
+        .next-steps p{font-size:0.85rem;color:var(--warm-gray);line-height:1.6;margin-bottom:16px}
+        .next-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+        .next-link{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1.5px solid rgba(0,0,0,0.08);border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--slate);transition:border-color 0.3s,color 0.3s}
+        .next-link:hover{border-color:var(--gold);color:var(--gold-dark)}
+        .next-link svg{width:16px;height:16px;fill:currentColor}
+        @keyframes scaleIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-brand">
+                <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div>
+                <div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div>
+            </a>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="card">
+            <div class="success-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <h1>Your guide is ready!</h1>
+            <p>Thanks for downloading — click below to get your guide. We've also sent a copy to your email just in case.</p>
+            <a href="../assets/pdfs/SLC-Suburbs-Relocation-Guide.pdf" class="download-btn" download>
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Your Guide
+            </a>
+            <div class="next-steps">
+                <h3>While you're here...</h3>
+                <p>Check out more free resources or connect with Natalie directly.</p>
+                <div class="next-links">
+                    <a href="../index.html" class="next-link">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 9h-2v4H9l3 3 3-3h-2V11z"/></svg>
+                        More Resources
+                    </a>
+                    <a href="tel:+18019498634" class="next-link">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        Call Natalie
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="next-link">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="white" points="9.545,15.568 15.818,12 9.545,8.432"/></svg>
+                        YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

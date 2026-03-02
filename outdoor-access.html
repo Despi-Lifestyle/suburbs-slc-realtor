@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Access Guide by Suburb | Natalie Griffith</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--green:#2E7D32;--sky:#1565C0;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px;position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;font-weight:500}
+        .back-link:hover{color:var(--gold-dark)}
+        .container{max-width:960px;margin:0 auto;padding:0 24px}
+        .hero{padding:60px 24px 40px;text-align:center;background:linear-gradient(180deg,var(--white) 0%,var(--cream) 100%);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .badge{display:inline-block;background:#E8F5E9;color:var(--green);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+        .hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:12px}
+        .hero h1 em{color:var(--gold);font-style:italic}
+        .hero p{color:var(--warm-gray);font-size:1rem;max-width:580px;margin:0 auto;line-height:1.7}
+        .content{padding:56px 24px 80px}
+        .section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .section-label::after{content:'';width:40px;height:1.5px;background:var(--gold)}
+        .section-title{font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px}
+        .section-desc{color:var(--warm-gray);font-size:0.9rem;margin-bottom:32px;line-height:1.6}
+
+        .ski-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:48px}
+        .ski-card{background:var(--white);border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.05);text-align:center}
+        .ski-card h4{font-family:var(--font-display);font-size:1rem;margin-bottom:4px}
+        .ski-card .distance{font-size:0.82rem;color:var(--gold-dark);font-weight:600;margin-bottom:6px}
+        .ski-card .detail{font-size:0.75rem;color:var(--warm-gray);line-height:1.5}
+        .ski-icon{font-size:1.8rem;margin-bottom:8px}
+
+        .suburb-outdoor{background:var(--white);border-radius:14px;padding:28px;border:1px solid rgba(0,0,0,0.05);margin-bottom:16px}
+        .suburb-outdoor-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+        .suburb-outdoor-marker{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .suburb-outdoor-marker svg{width:18px;height:18px;fill:var(--white)}
+        .suburb-outdoor-name{font-family:var(--font-display);font-size:1.2rem}
+        .suburb-outdoor-tag{font-size:0.78rem;color:var(--warm-gray)}
+        .outdoor-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+        .outdoor-tag{padding:5px 12px;border-radius:100px;font-size:0.72rem;font-weight:600}
+        .tag-ski{background:#E3F2FD;color:var(--sky)}
+        .tag-hike{background:#E8F5E9;color:var(--green)}
+        .tag-bike{background:#FFF3E0;color:#E65100}
+        .tag-water{background:#E0F7FA;color:#00838F}
+        .tag-park{background:#F3E5F5;color:#7B1FA2}
+        .suburb-outdoor p{font-size:0.85rem;color:var(--slate);line-height:1.65}
+        .drive-times{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+        .drive-time{font-size:0.75rem;color:var(--warm-gray);display:flex;align-items:center;gap:4px}
+        .drive-time strong{color:var(--slate)}
+
+        .cta-section{text-align:center;padding:48px 24px;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.05);margin-top:32px}
+        .cta-section h2{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
+        .cta-section p{color:var(--warm-gray);font-size:0.9rem;margin-bottom:24px}
+        .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
+        .cta-btn:hover{background:var(--gold-dark)}
+        .footer{padding:40px 24px;text-align:center;margin-top:60px}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
+        <a href="../index.html" class="back-link">← All Resources</a>
+    </div></nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Free — No Signup Required</div>
+            <h1><em>Outdoor Access</em> Guide by Suburb</h1>
+            <p>Ski resorts, hiking trails, mountain biking, and parks — what's accessible from each SLC suburb and how long it takes to get there.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="section-label reveal">Nearby Ski Resorts</div>
+            <h2 class="section-title reveal">World-class skiing, minutes away</h2>
+            <p class="section-desc reveal">Utah is home to "The Greatest Snow on Earth" — and from the SLC suburbs, you're never far from the slopes.</p>
+
+            <div class="ski-grid reveal">
+                <div class="ski-card"><div class="ski-icon">⛷️</div><h4>Brighton</h4><div class="distance">Big Cottonwood Canyon</div><div class="detail">25-40 min from most suburbs. Great for families, night skiing available.</div></div>
+                <div class="ski-card"><div class="ski-icon">🏔️</div><h4>Solitude</h4><div class="distance">Big Cottonwood Canyon</div><div class="detail">25-40 min. Less crowded, excellent grooming, Nordic center.</div></div>
+                <div class="ski-card"><div class="ski-icon">⛷️</div><h4>Snowbird</h4><div class="distance">Little Cottonwood Canyon</div><div class="detail">30-45 min. Expert terrain, longest season in Utah.</div></div>
+                <div class="ski-card"><div class="ski-icon">🏔️</div><h4>Alta</h4><div class="distance">Little Cottonwood Canyon</div><div class="detail">35-50 min. Legendary powder, skiers only (no snowboarders).</div></div>
+            </div>
+
+            <div class="section-label reveal">By Suburb</div>
+            <h2 class="section-title reveal">What's at your doorstep</h2>
+            <p class="section-desc reveal">Each suburb has different strengths for outdoor recreation. Here's what you get from each location.</p>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">Cottonwood Heights</div><div class="suburb-outdoor-tag">The undisputed outdoor champion</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-ski">Skiing</span><span class="outdoor-tag tag-hike">Hiking</span><span class="outdoor-tag tag-bike">Mountain Biking</span><span class="outdoor-tag tag-park">Parks</span></div>
+                <p>If outdoor access is your #1 priority, it's hard to beat Cottonwood Heights. You're literally at the mouth of Big Cottonwood Canyon, with Brighton and Solitude ski resorts a 20-minute drive up the canyon. Hiking trails start right from the neighborhood. The Bonneville Shoreline Trail is practically in your backyard.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Ski resorts: <strong>20-25 min</strong></div><div class="drive-time">🥾 Trailheads: <strong>5 min</strong></div><div class="drive-time">🚴 Bike trails: <strong>5 min</strong></div></div>
+            </div>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">Draper</div><div class="suburb-outdoor-tag">Trail running and mountain biking mecca</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-hike">Hiking</span><span class="outdoor-tag tag-bike">Mountain Biking</span><span class="outdoor-tag tag-ski">Skiing</span><span class="outdoor-tag tag-park">Parks</span></div>
+                <p>Corner Canyon is the crown jewel — over 40 miles of trails for hiking, mountain biking, and trail running right from the neighborhood. The BST (Bonneville Shoreline Trail) connects here too. Ski resorts are 30-35 minutes via the canyons.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Ski resorts: <strong>30-35 min</strong></div><div class="drive-time">🥾 Corner Canyon: <strong>5 min</strong></div><div class="drive-time">🚴 40+ miles of trails: <strong>At doorstep</strong></div></div>
+            </div>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">Sandy</div><div class="suburb-outdoor-tag">Canyon access with urban amenities</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-ski">Skiing</span><span class="outdoor-tag tag-hike">Hiking</span><span class="outdoor-tag tag-park">Parks</span><span class="outdoor-tag tag-water">Water Sports</span></div>
+                <p>Sandy sits right at the mouth of Little Cottonwood Canyon — Snowbird and Alta are a quick drive up. Bell Canyon and Corner Canyon trails are close, plus the city has excellent parks and rec facilities. The Jordan River Parkway runs through for easy cycling and running.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Snowbird/Alta: <strong>25-30 min</strong></div><div class="drive-time">🥾 Bell Canyon: <strong>10 min</strong></div><div class="drive-time">🌊 Jordan River: <strong>10 min</strong></div></div>
+            </div>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">South Jordan</div><div class="suburb-outdoor-tag">Balanced access to everything</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-park">Parks</span><span class="outdoor-tag tag-bike">Cycling</span><span class="outdoor-tag tag-water">Daybreak Lake</span><span class="outdoor-tag tag-ski">Skiing</span></div>
+                <p>South Jordan's Daybreak community features its own lake, miles of paved trails, and community pools. The Oquirrh Mountain range provides a dramatic western backdrop. Ski resorts are 35-40 minutes east. Great for families who want accessible everyday recreation.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Ski resorts: <strong>35-40 min</strong></div><div class="drive-time">🏖️ Daybreak Lake: <strong>In community</strong></div><div class="drive-time">🚴 Paved trails: <strong>At doorstep</strong></div></div>
+            </div>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">Herriman, Riverton, Bluffdale</div><div class="suburb-outdoor-tag">Wide open spaces and growing trail networks</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-hike">Hiking</span><span class="outdoor-tag tag-bike">Cycling</span><span class="outdoor-tag tag-park">Open Space</span></div>
+                <p>These southwest suburbs offer a different outdoor vibe — more wide-open space, foothills, and equestrian trails. Butterfield Canyon, Rose Canyon, and Yellow Fork trails provide excellent hiking. Ski resorts are a bit farther (40-50 min) but the trade-off is larger lots and a more rural feel with growing amenities.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Ski resorts: <strong>40-50 min</strong></div><div class="drive-time">🥾 Foothill trails: <strong>10-15 min</strong></div><div class="drive-time">🐴 Equestrian: <strong>Available</strong></div></div>
+            </div>
+
+            <div class="suburb-outdoor reveal">
+                <div class="suburb-outdoor-header"><div class="suburb-outdoor-marker"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div><div class="suburb-outdoor-name">Holladay & Millcreek</div><div class="suburb-outdoor-tag">Central location, canyon proximity</div></div></div>
+                <div class="outdoor-tags"><span class="outdoor-tag tag-hike">Hiking</span><span class="outdoor-tag tag-ski">Skiing</span><span class="outdoor-tag tag-bike">Cycling</span><span class="outdoor-tag tag-park">City Parks</span></div>
+                <p>Both suburbs sit close to Millcreek Canyon — a popular year-round destination for hiking, mountain biking (odd days), and cross-country skiing. Big and Little Cottonwood Canyons are also easily accessible. Urban parks like Holladay Lions Park add everyday green space.</p>
+                <div class="drive-times"><div class="drive-time">🎿 Ski resorts: <strong>25-35 min</strong></div><div class="drive-time">🥾 Millcreek Canyon: <strong>10-15 min</strong></div><div class="drive-time">🌳 City parks: <strong>Walking distance</strong></div></div>
+            </div>
+
+            <div class="cta-section reveal">
+                <h2>Find the suburb that fits your lifestyle</h2>
+                <p>The full Relocation Guide covers outdoor access plus schools, prices, commutes, and more for all 9 suburbs.</p>
+                <a href="../relocation-guide/" class="cta-btn">Get the Free Relocation Guide →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+    <script>const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});reveals.forEach(el=>observer.observe(el));</script>
+</body>
+</html>

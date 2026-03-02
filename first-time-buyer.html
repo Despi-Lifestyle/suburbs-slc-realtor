@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Time Buyer Checklist for Utah | Natalie Griffith</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--green:#2E7D32;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px;position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;font-weight:500}
+        .back-link:hover{color:var(--gold-dark)}
+        .container{max-width:800px;margin:0 auto;padding:0 24px}
+        .hero{padding:60px 24px 40px;text-align:center;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .badge{display:inline-block;background:#E8F5E9;color:var(--green);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+        .hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:12px}
+        .hero h1 em{color:var(--gold);font-style:italic}
+        .hero p{color:var(--warm-gray);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7}
+        .content{padding:56px 24px 80px}
+
+        .phase{margin-bottom:48px}
+        .phase-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+        .phase-number{width:48px;height:48px;background:var(--black);color:var(--gold-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;flex-shrink:0}
+        .phase-info h2{font-family:var(--font-display);font-size:1.3rem;margin-bottom:2px}
+        .phase-info p{font-size:0.82rem;color:var(--warm-gray)}
+
+        .checklist{display:flex;flex-direction:column;gap:10px}
+        .check-item{background:var(--white);border-radius:10px;padding:18px 20px;border:1px solid rgba(0,0,0,0.05);display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;user-select:none}
+        .check-item:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.04)}
+        .check-item.checked{opacity:0.6}
+        .check-item.checked .check-box{background:var(--gold);border-color:var(--gold)}
+        .check-item.checked .check-box svg{opacity:1}
+        .check-box{width:24px;height:24px;border:2px solid #D4D0C8;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-top:1px}
+        .check-box svg{width:14px;height:14px;fill:var(--white);opacity:0;transition:opacity 0.2s}
+        .check-content h4{font-size:0.92rem;margin-bottom:3px;color:var(--black)}
+        .check-content p{font-size:0.8rem;color:var(--warm-gray);line-height:1.55}
+
+        .utah-callout{background:linear-gradient(135deg,#FBF7EE,#F7F4EF);border:1px solid var(--gold-light);border-radius:12px;padding:24px 28px;margin:20px 0}
+        .utah-callout h4{font-family:var(--font-display);font-size:1rem;color:var(--gold-dark);margin-bottom:6px}
+        .utah-callout p{font-size:0.85rem;color:var(--slate);line-height:1.65}
+
+        .progress-bar{background:var(--white);border-radius:12px;padding:20px 24px;border:1px solid rgba(0,0,0,0.05);margin-bottom:40px;position:sticky;top:72px;z-index:50}
+        .progress-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.78rem;font-weight:600;color:var(--slate)}
+        .progress-track{height:8px;background:var(--light-warm);border-radius:4px;overflow:hidden}
+        .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width 0.5s ease;width:0%}
+
+        .cta-section{text-align:center;padding:48px 24px;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.05)}
+        .cta-section h2{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
+        .cta-section p{color:var(--warm-gray);font-size:0.9rem;margin-bottom:24px}
+        .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
+        .cta-btn:hover{background:var(--gold-dark)}
+        .footer{padding:40px 24px;text-align:center;margin-top:60px}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
+        <a href="../index.html" class="back-link">← All Resources</a>
+    </div></nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Free — Interactive Checklist</div>
+            <h1><em>First-Time Buyer</em> Checklist for Utah</h1>
+            <p>Utah-specific steps from pre-approval through closing day. Check items off as you go — your progress saves automatically.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-label"><span>Your Progress</span><span id="progress-text">0 of 20 complete</span></div>
+                <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header"><div class="phase-number">1</div><div class="phase-info"><h2>Get Financially Ready</h2><p>Before you even look at homes — 4-8 weeks</p></div></div>
+                <div class="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Check your credit score</h4><p>Aim for 620+ minimum, 740+ for the best rates. Utah lenders offer competitive rates for strong credit.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get pre-approved (not just pre-qualified)</h4><p>In Utah's competitive market, sellers take pre-approval letters seriously. Shop 2-3 lenders for the best rate.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Research Utah down payment assistance programs</h4><p>UHC (Utah Housing Corporation) offers first-time buyer programs with down payment help. Income limits apply.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Set your budget (including Utah property taxes)</h4><p>Utah property taxes are relatively low (0.55-0.65% of home value) but factor in HOA fees, which are common in newer suburbs.</p></div></div>
+                </div>
+            </div>
+
+            <div class="utah-callout">
+                <h4>Utah-Specific: Down Payment Programs</h4>
+                <p>Utah Housing Corporation (UHC) offers several programs for first-time buyers including the FirstHome Loan with competitive rates and down payment assistance of up to 6% of the loan amount. Income limits vary by county and household size. Natalie can connect you with lenders who specialize in these programs.</p>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header"><div class="phase-number">2</div><div class="phase-info"><h2>Find the Right Agent & Suburb</h2><p>Critical step — especially as a relocator — 1-2 weeks</p></div></div>
+                <div class="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Choose an agent who knows SLC suburbs</h4><p>A local expert will save you from common relocator mistakes — wrong suburb, wrong school boundary, overpaying.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Identify your top 2-3 suburbs</h4><p>Don't try to search everywhere. Narrow to 2-3 areas based on budget, schools, commute, and lifestyle priorities.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Verify school boundaries for target neighborhoods</h4><p>School boundaries don't always match city limits in Utah. Always confirm exact school assignments per address.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Research HOA rules if looking in newer communities</h4><p>Many SLC suburb developments have HOAs. Fees range from $30-$200+/month. Review CC&Rs before buying.</p></div></div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header"><div class="phase-number">3</div><div class="phase-info"><h2>House Hunting & Making Offers</h2><p>The fun part — 2-8 weeks depending on market</p></div></div>
+                <div class="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Set up automated MLS alerts</h4><p>Your agent should set these up. In competitive areas, you want to see new listings within hours, not days.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Tour homes (in-person or virtual if relocating from afar)</h4><p>Video tours and FaceTime walkthroughs are common for out-of-state buyers. Your agent should offer this.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Make a competitive offer</h4><p>Your agent will advise on offer strategy. In Utah, earnest money is typically 1-3% and shows seriousness.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Negotiate and go under contract</h4><p>Utah uses the REPC (Real Estate Purchase Contract). Your agent will handle negotiations and paperwork.</p></div></div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header"><div class="phase-number">4</div><div class="phase-info"><h2>Under Contract to Closing</h2><p>The home stretch — typically 30-45 days</p></div></div>
+                <div class="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Schedule home inspection</h4><p>Non-negotiable. Utah homes can have issues with foundation settling, radon, and water in basements. Budget $400-$600.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get a radon test</h4><p>Utah has higher-than-average radon levels. Testing costs ~$150 and mitigation (if needed) runs $800-$1,500.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Appraisal and title work</h4><p>Your lender orders the appraisal. Title company handles the title search and prepares closing documents.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Final walkthrough</h4><p>24-48 hours before closing. Verify repairs were made and the home is in agreed-upon condition.</p></div></div>
+                </div>
+            </div>
+
+            <div class="phase">
+                <div class="phase-header"><div class="phase-number">5</div><div class="phase-info"><h2>Closing & Move-In</h2><p>You're almost home!</p></div></div>
+                <div class="checklist">
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Review closing disclosure (3 days before closing)</h4><p>Compare to your loan estimate. Ask questions about anything that doesn't match.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Wire closing funds & sign documents</h4><p>Utah typically closes at a title company. Bring your ID. Expect 1-2 hours of signing.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get your keys and set up utilities</h4><p>Rocky Mountain Power (electric), Dominion Energy (gas), and your local city for water/sewer/trash.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Update your address and get a Utah driver's license</h4><p>Utah requires a new license within 60 days of establishing residency. Visit your local DLD office.</p></div></div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to start your home buying journey?</h2>
+                <p>Natalie specializes in helping first-time buyers and relocating families navigate the SLC suburbs market.</p>
+                <a href="tel:+18019498634" class="cta-btn">Call Natalie — (801) 949-8634</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+
+    <script>
+        function toggleCheck(el) {
+            el.classList.toggle('checked');
+            updateProgress();
+        }
+        function updateProgress() {
+            const total = document.querySelectorAll('.check-item').length;
+            const checked = document.querySelectorAll('.check-item.checked').length;
+            const pct = Math.round((checked / total) * 100);
+            document.getElementById('progress-fill').style.width = pct + '%';
+            document.getElementById('progress-text').textContent = checked + ' of ' + total + ' complete';
+        }
+    </script>
+</body>
+</html>
