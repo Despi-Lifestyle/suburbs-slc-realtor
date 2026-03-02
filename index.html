@@ -668,4 +668,9 @@
                 if (entry.isIntersecting) {
                     setTimeout(() => entry.target.classList.add('visible'), i * 60);
                 }
-       
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html> 
