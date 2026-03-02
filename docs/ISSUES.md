@@ -7,35 +7,33 @@ Discovered during initial code review on March 2, 2026.
 ## Critical (Will break the site)
 
 ### ISS-001: File structure doesn't match link paths
-- **Status**: Open
+- **Status**: RESOLVED (commit b20bece)
 - **Phase**: 1
-- **Description**: All HTML files are in the root directory, but index.html links to them as `free-resources/*.html`. Sub-pages link back to `../index.html` which won't resolve since they're not in subdirectories.
-- **Fix**: Reorganize files into proper directory structure (see ARCHITECTURE.md target state).
+- **Description**: All HTML files were in the root directory, but index.html linked to them as `free-resources/*.html`.
+- **Fix**: Reorganized files into proper directory structure. All 27 internal links verified.
 
 ### ISS-002: Relocation guide page in sandbox path
-- **Status**: Open
+- **Status**: RESOLVED (commit b20bece)
 - **Phase**: 1
-- **Description**: The lead capture landing page is at `mnt/user-data/outputs/slc-relocation-resources/relocation-guide/index.html` — this is a Claude browser sandbox artifact.
-- **Fix**: Move to `/relocation-guide/index.html` and delete the `mnt/` directory.
+- **Description**: The lead capture landing page was at `mnt/user-data/outputs/...` — a Claude browser sandbox artifact.
+- **Fix**: Moved to `/relocation-guide/index.html`. Deleted `mnt/` directory.
 
 ### ISS-003: Cloudflare-specific code won't work on Vercel
-- **Status**: Open
+- **Status**: RESOLVED (commit b20bece)
 - **Phase**: 1
-- **Files**: `index.html` lines 651, 657
-- **Description**: Email address is encoded with Cloudflare email protection. A Cloudflare script is loaded from `/cdn-cgi/scripts/`. Neither will function on Vercel.
-- **Fix**: Replace with plain `mailto:` link. Remove the Cloudflare script tag.
+- **Description**: Email address was encoded with Cloudflare email protection + Cloudflare decoder script.
+- **Fix**: Replaced with plain `mailto:natalie@griffithteamre.com`. Removed Cloudflare script.
 
 ### ISS-004: PDF download path broken
-- **Status**: Open
+- **Status**: RESOLVED (commit b20bece)
 - **Phase**: 1
-- **File**: `thank-you.html` line 55
-- **Description**: Links to `../assets/pdfs/SLC-Suburbs-Relocation-Guide.pdf` but the PDF is in the project root with no `assets/pdfs/` directory.
-- **Fix**: Create the `assets/pdfs/` directory and move the PDF there.
+- **Description**: thank-you.html linked to `../assets/pdfs/` which didn't exist.
+- **Fix**: Created `assets/pdfs/` directory and moved PDF there. Path now resolves correctly.
 
 ### ISS-005: Lead form has no backend
 - **Status**: Open
 - **Phase**: 2
-- **File**: `mnt/.../relocation-guide/index.html` lines 1024-1029
+- **File**: `relocation-guide/index.html` lines 1024-1029
 - **Description**: `handleSubmit()` only hides the form and shows a success message. Data is not sent anywhere — all leads are lost.
 - **Fix**: Integrate a form backend service (Formspree, serverless function, etc.) with Lofty CRM bridge.
 
@@ -93,10 +91,10 @@ Discovered during initial code review on March 2, 2026.
 - **Fix**: Update to 2026.
 
 ### ISS-013: No .gitignore
-- **Status**: Open
+- **Status**: RESOLVED (commit 94a51f0)
 - **Phase**: 1
-- **Description**: .DS_Store files throughout the project will be committed without a .gitignore.
-- **Fix**: Create `.gitignore` with `.DS_Store`, `mnt/`, and any other excludes.
+- **Description**: .DS_Store files throughout the project would be committed without a .gitignore.
+- **Fix**: Created `.gitignore` excluding .DS_Store, .vscode, .claude, Thumbs.db.
 
 ---
 
@@ -104,10 +102,10 @@ Discovered during initial code review on March 2, 2026.
 
 | ID | Severity | Phase | Status |
 |----|----------|-------|--------|
-| ISS-001 | Critical | 1 | Open |
-| ISS-002 | Critical | 1 | Open |
-| ISS-003 | Critical | 1 | Open |
-| ISS-004 | Critical | 1 | Open |
+| ISS-001 | Critical | 1 | RESOLVED |
+| ISS-002 | Critical | 1 | RESOLVED |
+| ISS-003 | Critical | 1 | RESOLVED |
+| ISS-004 | Critical | 1 | RESOLVED |
 | ISS-005 | Critical | 2 | Open |
 | ISS-006 | Medium | 2 | Open (blocked — waiting on URLs) |
 | ISS-007 | Medium | 3 | Open |
@@ -116,4 +114,4 @@ Discovered during initial code review on March 2, 2026.
 | ISS-010 | Medium | 3 | Open (Despi handling) |
 | ISS-011 | Low | 2 | Open |
 | ISS-012 | Low | 2 | Open |
-| ISS-013 | Low | 1 | Open |
+| ISS-013 | Low | 1 | RESOLVED |

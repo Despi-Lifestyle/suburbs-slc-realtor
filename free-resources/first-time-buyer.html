@@ -150,6 +150,7 @@
     <script>
         function toggleCheck(el) {
             el.classList.toggle('checked');
+            saveProgress();
             updateProgress();
         }
         function updateProgress() {
@@ -159,6 +160,22 @@
             document.getElementById('progress-fill').style.width = pct + '%';
             document.getElementById('progress-text').textContent = checked + ' of ' + total + ' complete';
         }
+        function saveProgress() {
+            const items = document.querySelectorAll('.check-item');
+            const state = Array.from(items).map(el => el.classList.contains('checked'));
+            localStorage.setItem('ftb-checklist', JSON.stringify(state));
+        }
+        function loadProgress() {
+            const saved = localStorage.getItem('ftb-checklist');
+            if (!saved) return;
+            const state = JSON.parse(saved);
+            const items = document.querySelectorAll('.check-item');
+            state.forEach((isChecked, i) => {
+                if (isChecked && items[i]) items[i].classList.add('checked');
+            });
+            updateProgress();
+        }
+        loadProgress();
     </script>
 </body>
 </html>
