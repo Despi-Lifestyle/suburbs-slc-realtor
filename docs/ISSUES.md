@@ -42,9 +42,10 @@ Discovered during initial code review on March 2, 2026.
 ## Medium (Functional issues)
 
 ### ISS-006: Placeholder social media links
-- **Status**: Open (waiting on Despi for real URLs)
+- **Status**: Partially resolved (YouTube updated, Instagram still placeholder)
 - **Phase**: 2
 - **Description**: YouTube and Instagram links point to generic `youtube.com` and `instagram.com` instead of Natalie's actual profiles.
+- **Fix**: YouTube updated to `@LivingintheSuburbsOfSLC` in index.html (2 links) and thank-you.html (1 link). Instagram still needs real URL.
 - **Files**: `index.html` lines 447, 649, 650; `thank-you.html` line 71
 
 ### ISS-007: Three resource cards link to `#`
