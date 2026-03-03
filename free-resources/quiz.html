@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <title>"Is Utah Right for You?" Quiz | Natalie Griffith</title>
+    <meta name="description" content="Take this 10-question quiz to find out which Salt Lake City suburb is the best fit for your family's lifestyle, budget, and priorities.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Is Utah Right for You? Quiz | Natalie Griffith">
+    <meta property="og:description" content="Take this 10-question quiz to find out which Salt Lake City suburb is the best fit for your family's lifestyle, budget, and priorities.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Is Utah Right for You? Quiz | Natalie Griffith">
+    <meta name="twitter:description" content="Take this 10-question quiz to find out which Salt Lake City suburb is the best fit for your family's lifestyle, budget, and priorities.">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--green:#2E7D32;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px;position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:500}
+        .back-link:hover{color:var(--gold-dark)}
+        .container{max-width:720px;margin:0 auto;padding:0 24px}
+        .hero{padding:60px 24px 40px;text-align:center;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .badge{display:inline-block;background:#E8F5E9;color:var(--green);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+        .hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:12px}
+        .hero h1 em{color:var(--gold);font-style:italic}
+        .hero p{color:var(--warm-gray);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7}
+        .content{padding:56px 24px 80px}
+
+        /* Progress */
+        .quiz-progress{background:var(--white);border-radius:12px;padding:20px 24px;border:1px solid rgba(0,0,0,0.05);margin-bottom:40px}
+        .quiz-progress-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.78rem;font-weight:600;color:var(--slate)}
+        .quiz-progress-track{height:8px;background:var(--light-warm);border-radius:4px;overflow:hidden}
+        .quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width 0.5s ease;width:0%}
+
+        /* Question Card */
+        .question-card{background:var(--white);border-radius:16px;padding:36px 32px;border:1px solid rgba(0,0,0,0.05);margin-bottom:24px;display:none}
+        .question-card.active{display:block;animation:fadeIn 0.4s ease}
+        .question-number{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .question-number::after{content:'';width:40px;height:1.5px;background:var(--gold)}
+        .question-card h2{font-family:var(--font-display);font-size:1.3rem;margin-bottom:20px;line-height:1.3}
+        .options{display:flex;flex-direction:column;gap:10px}
+        .option{background:var(--cream);border:2px solid rgba(0,0,0,0.06);border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:14px;user-select:none}
+        .option:hover{border-color:var(--gold-light);background:var(--light-warm)}
+        .option.selected{border-color:var(--gold);background:rgba(200,168,78,0.08)}
+        .option-marker{width:22px;height:22px;border:2px solid #D4D0C8;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+        .option.selected .option-marker{border-color:var(--gold);background:var(--gold)}
+        .option.selected .option-marker::after{content:'';width:8px;height:8px;background:var(--white);border-radius:50%}
+        .option-text{font-size:0.9rem;font-weight:500;color:var(--slate);line-height:1.4}
+        .option.selected .option-text{color:var(--black)}
+
+        /* Navigation */
+        .quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+        .btn-back{background:none;border:1px solid rgba(0,0,0,0.1);color:var(--slate);padding:12px 24px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:var(--font-body)}
+        .btn-back:hover{border-color:var(--slate);color:var(--black)}
+        .btn-back:disabled{opacity:0.3;cursor:not-allowed}
+        .btn-next{background:var(--gold);color:var(--white);border:none;padding:12px 28px;border-radius:8px;font-size:0.85rem;font-weight:700;cursor:pointer;transition:background 0.3s;text-transform:uppercase;letter-spacing:0.04em;font-family:var(--font-body)}
+        .btn-next:hover{background:var(--gold-dark)}
+        .btn-next:disabled{opacity:0.4;cursor:not-allowed}
+
+        /* Results */
+        .results-card{background:var(--white);border-radius:16px;padding:40px 32px;border:1px solid rgba(0,0,0,0.05);display:none;text-align:center}
+        .results-card.active{display:block;animation:fadeIn 0.5s ease}
+        .results-badge{display:inline-block;background:rgba(200,168,78,0.12);color:var(--gold-dark);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 16px;border-radius:100px;margin-bottom:20px}
+        .results-card h2{font-family:var(--font-display);font-size:1.8rem;margin-bottom:8px}
+        .results-card .subtitle{color:var(--warm-gray);font-size:1rem;margin-bottom:32px;line-height:1.6}
+        .result-suburb{background:var(--cream);border-radius:14px;padding:28px 24px;margin-bottom:16px;text-align:left;border:1px solid rgba(0,0,0,0.05)}
+        .result-suburb.top-match{border:2px solid var(--gold);background:rgba(200,168,78,0.04)}
+        .result-suburb-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .result-suburb h3{font-family:var(--font-display);font-size:1.2rem}
+        .match-badge{font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:0.06em}
+        .match-high{background:rgba(200,168,78,0.15);color:var(--gold-dark)}
+        .match-good{background:#E8F5E9;color:var(--green)}
+        .result-suburb p{font-size:0.85rem;color:var(--slate);line-height:1.65;margin-bottom:12px}
+        .result-suburb-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .result-stat{font-size:0.78rem;color:var(--warm-gray)}
+        .result-stat strong{color:var(--black);font-weight:600}
+        .results-note{background:var(--light-warm);border-radius:12px;padding:24px;margin-top:24px;text-align:left}
+        .results-note p{font-size:0.85rem;color:var(--slate);line-height:1.65}
+        .results-actions{display:flex;flex-direction:column;gap:12px;margin-top:28px;align-items:center}
+        .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
+        .cta-btn:hover{background:var(--gold-dark)}
+        .btn-retake{background:none;border:none;color:var(--slate);font-size:0.85rem;font-weight:500;cursor:pointer;text-decoration:underline;font-family:var(--font-body)}
+        .btn-retake:hover{color:var(--black)}
+
+        .footer{padding:40px 24px;text-align:center;margin-top:60px}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+
+        @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
+        <a href="../index.html" class="back-link">← All Resources</a>
+    </div></nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Free — Interactive Quiz</div>
+            <h1>Is <em>Utah Right</em> for You?</h1>
+            <p>Answer 10 quick questions about your lifestyle, priorities, and budget — we'll tell you which SLC suburb is your best match.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="quiz-progress">
+                <div class="quiz-progress-label"><span>Question <span id="q-current">1</span> of 10</span><span id="q-percent">0%</span></div>
+                <div class="quiz-progress-track"><div class="quiz-progress-fill" id="q-fill"></div></div>
+            </div>
+
+            <div id="quiz-container">
+                <!-- Q1 -->
+                <div class="question-card active" data-q="0">
+                    <div class="question-number">Question 1</div>
+                    <h2>What's your household budget for a home?</h2>
+                    <div class="options">
+                        <div class="option" data-value="budget-low" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Under $450K — Looking for the best value</div></div>
+                        <div class="option" data-value="budget-mid" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">$450K – $600K — Comfortable middle range</div></div>
+                        <div class="option" data-value="budget-high" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">$600K – $800K — Willing to invest more for the right spot</div></div>
+                        <div class="option" data-value="budget-premium" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">$800K+ — Premium neighborhoods and homes</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" disabled>← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" data-q="1">
+                    <div class="question-number">Question 2</div>
+                    <h2>What's most important to you in a neighborhood?</h2>
+                    <div class="options">
+                        <div class="option" data-value="priority-schools" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Top-rated schools — education is priority #1</div></div>
+                        <div class="option" data-value="priority-outdoor" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Outdoor access — skiing, hiking, trails close by</div></div>
+                        <div class="option" data-value="priority-commute" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Short commute — easy access to downtown SLC or tech corridor</div></div>
+                        <div class="option" data-value="priority-community" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Community feel — walkable, local shops, neighborhood events</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" data-q="2">
+                    <div class="question-number">Question 3</div>
+                    <h2>How often do you want to be on the slopes?</h2>
+                    <div class="options">
+                        <div class="option" data-value="ski-never" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Not a factor — skiing isn't really my thing</div></div>
+                        <div class="option" data-value="ski-casual" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">A few times a season — nice to have nearby</div></div>
+                        <div class="option" data-value="ski-regular" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Most weekends in winter — proximity to resorts matters</div></div>
+                        <div class="option" data-value="ski-core" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">I need to be as close to the mountains as possible, year-round</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-card" data-q="3">
+                    <div class="question-number">Question 4</div>
+                    <h2>What stage of life best describes your household?</h2>
+                    <div class="options">
+                        <div class="option" data-value="life-young" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Young professional or couple — no kids yet</div></div>
+                        <div class="option" data-value="life-youngfam" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Growing family — young kids (under 10)</div></div>
+                        <div class="option" data-value="life-established" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Established family — older kids / teens</div></div>
+                        <div class="option" data-value="life-empty" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Empty nester or downsizing — kids are grown</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-card" data-q="4">
+                    <div class="question-number">Question 5</div>
+                    <h2>What kind of home are you looking for?</h2>
+                    <div class="options">
+                        <div class="option" data-value="home-starter" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Starter home or townhome — getting a foothold</div></div>
+                        <div class="option" data-value="home-family" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Family home — 3-4 bedrooms, good yard, quiet street</div></div>
+                        <div class="option" data-value="home-spacious" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Spacious property — larger lot, room to spread out</div></div>
+                        <div class="option" data-value="home-upscale" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Upscale or custom home — premium finishes, mountain views</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question-card" data-q="5">
+                    <div class="question-number">Question 6</div>
+                    <h2>Where will you (or your partner) be commuting to?</h2>
+                    <div class="options">
+                        <div class="option" data-value="commute-downtown" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Downtown Salt Lake City</div></div>
+                        <div class="option" data-value="commute-tech" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Silicon Slopes / Lehi-Draper tech corridor</div></div>
+                        <div class="option" data-value="commute-remote" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Working from home — commute doesn't matter</div></div>
+                        <div class="option" data-value="commute-varied" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">It varies / multiple locations</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question-card" data-q="6">
+                    <div class="question-number">Question 7</div>
+                    <h2>How important is a "walkable" neighborhood?</h2>
+                    <div class="options">
+                        <div class="option" data-value="walk-must" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Very important — shops, restaurants, and parks within walking distance</div></div>
+                        <div class="option" data-value="walk-nice" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Nice to have — but not a deal-breaker</div></div>
+                        <div class="option" data-value="walk-not" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Doesn't matter — I prefer driving and having space</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question-card" data-q="7">
+                    <div class="question-number">Question 8</div>
+                    <h2>Do you prefer an established neighborhood or newer development?</h2>
+                    <div class="options">
+                        <div class="option" data-value="age-established" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Established — mature trees, character homes, proven neighborhoods</div></div>
+                        <div class="option" data-value="age-newer" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Newer — modern builds, updated amenities, HOA communities</div></div>
+                        <div class="option" data-value="age-mix" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">A mix of both — I'm flexible</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question-card" data-q="8">
+                    <div class="question-number">Question 9</div>
+                    <h2>What's your vibe when it comes to dining and nightlife?</h2>
+                    <div class="options">
+                        <div class="option" data-value="vibe-urban" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">I want restaurants, breweries, and shops within a short drive</div></div>
+                        <div class="option" data-value="vibe-suburban" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">A few good local spots is plenty — I cook at home mostly</div></div>
+                        <div class="option" data-value="vibe-quiet" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Peace and quiet — I'd rather have nature than nightlife</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="nextQuestion()">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question-card" data-q="9">
+                    <div class="question-number">Question 10</div>
+                    <h2>What matters most for your day-to-day quality of life?</h2>
+                    <div class="options">
+                        <div class="option" data-value="qol-views" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Mountain views and natural beauty right outside my door</div></div>
+                        <div class="option" data-value="qol-convenience" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Convenience — everything I need is close and easy</div></div>
+                        <div class="option" data-value="qol-space" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Space and privacy — bigger lots, less density</div></div>
+                        <div class="option" data-value="qol-value" onclick="selectOption(this)"><div class="option-marker"></div><div class="option-text">Getting the most for my money — best value per dollar</div></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn-back" onclick="prevQuestion()">← Back</button>
+                        <button class="btn-next" disabled onclick="showResults()">See My Results →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="results-card">
+                <div class="results-badge">Your Results</div>
+                <h2 id="results-title">Your Top SLC Suburb Matches</h2>
+                <p class="subtitle">Based on your answers, here are the suburbs that best fit your lifestyle, budget, and priorities.</p>
+                <div id="results-list"></div>
+                <div class="results-note">
+                    <p><strong>Keep in mind:</strong> This quiz gives you a great starting point, but every family's situation is unique. Factors like specific school boundaries, upcoming developments, and your personal must-haves can shift the picture. Natalie knows these suburbs inside and out — a quick conversation can help you zero in on exactly the right fit.</p>
+                </div>
+                <div class="results-actions">
+                    <a href="../relocation-guide/" class="cta-btn">Get the Free Relocation Guide →</a>
+                    <button class="btn-retake" onclick="retakeQuiz()">Retake the quiz</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+
+    <script>
+        const answers = [];
+        let currentQ = 0;
+        const totalQ = 10;
+
+        // Suburb scoring profiles — each suburb has traits that questions map to
+        const suburbs = {
+            draper: {
+                name: 'Draper',
+                price: '$600K – $850K',
+                commute: '25 min to downtown, 10 min to Silicon Slopes',
+                schools: 'Canyons District — rated 7-9/10',
+                vibe: 'Upscale suburban living at the base of the Wasatch. Premium homes, top schools, and direct access to Corner Canyon trails and ski resorts. The heart of Silicon Slopes tech culture.',
+                scores: {}
+            },
+            cottonwoodHeights: {
+                name: 'Cottonwood Heights',
+                price: '$550K – $750K',
+                commute: '20 min to downtown',
+                schools: 'Canyons District — rated 7-9/10',
+                vibe: 'The closest suburb to Big and Little Cottonwood Canyon ski resorts. Established, tree-lined neighborhoods with stunning mountain views. Perfect for outdoor enthusiasts who want canyon access without sacrificing suburban convenience.',
+                scores: {}
+            },
+            southJordan: {
+                name: 'South Jordan',
+                price: '$550K – $700K',
+                commute: '30 min to downtown, 15 min to Silicon Slopes',
+                schools: 'Jordan District — rated 6-8/10',
+                vibe: 'Family-first suburb with excellent schools, master-planned communities, Daybreak\'s walkable village, and TRAX light rail access. Great balance of space, amenities, and commute options.',
+                scores: {}
+            },
+            sandy: {
+                name: 'Sandy',
+                price: '$480K – $680K',
+                commute: '20 min to downtown',
+                schools: 'Canyons District — rated 7-8/10',
+                vibe: 'Centrally located with the best mix of everything — restaurants, shopping at The Shops at South Town, proximity to canyons, TRAX access, and strong schools. Jack of all trades, master of convenience.',
+                scores: {}
+            },
+            holladay: {
+                name: 'Holladay',
+                price: '$500K – $800K',
+                commute: '15 min to downtown',
+                schools: 'Granite & Canyons Districts — rated 6-8/10',
+                vibe: 'One of the most walkable suburbs with a charming village center (Holladay Village). Tree-lined streets, boutique dining, close to Big Cottonwood Canyon. Has an established, slightly upscale community feel.',
+                scores: {}
+            },
+            millcreek: {
+                name: 'Millcreek',
+                price: '$420K – $600K',
+                commute: '10-15 min to downtown',
+                schools: 'Granite District — rated 5-7/10',
+                vibe: 'The most urban-adjacent suburb with a trendy, eclectic feel. Closest to downtown SLC nightlife and dining. Great for young professionals and those who want walkability, local restaurants, and a shorter commute at a lower price point.',
+                scores: {}
+            },
+            herriman: {
+                name: 'Herriman',
+                price: '$450K – $600K',
+                commute: '35 min to downtown, 20 min to Silicon Slopes',
+                schools: 'Jordan District — rated 6-7/10',
+                vibe: 'One of Utah\'s fastest-growing cities with brand-new communities, modern homes, and excellent value for the price. More space, bigger lots, and a quiet, family-friendly atmosphere. Growing rapidly with new restaurants and shops.',
+                scores: {}
+            },
+            riverton: {
+                name: 'Riverton',
+                price: '$450K – $620K',
+                commute: '30 min to downtown, 15 min to Silicon Slopes',
+                schools: 'Jordan District — rated 6-8/10',
+                vibe: 'Classic suburban family living with a small-town feel. Tree-lined streets, community events, Old Towne Riverton charm, and solid schools. Good value with a strong sense of community.',
+                scores: {}
+            },
+            bluffdale: {
+                name: 'Bluffdale',
+                price: '$480K – $650K',
+                commute: '30 min to downtown, 10 min to Silicon Slopes',
+                schools: 'Jordan District — rated 6-8/10',
+                vibe: 'Horse properties and wide-open spaces meet newer master-planned communities. Great for those who want more land and a semi-rural feel while still being close to the Silicon Slopes tech hub. Equestrian-friendly.',
+                scores: {}
+            }
+        };
+
+        // Scoring logic — each answer adds points to matching suburbs
+        function scoreSuburbs() {
+            // Reset scores
+            Object.keys(suburbs).forEach(k => suburbs[k].scores = { total: 0 });
+
+            answers.forEach(answer => {
+                switch(answer) {
+                    // Budget
+                    case 'budget-low':
+                        addScore(['millcreek','herriman','riverton'], 3);
+                        addScore(['bluffdale','sandy'], 2);
+                        break;
+                    case 'budget-mid':
+                        addScore(['sandy','southJordan','riverton','bluffdale','herriman'], 3);
+                        addScore(['cottonwoodHeights','holladay'], 2);
+                        break;
+                    case 'budget-high':
+                        addScore(['cottonwoodHeights','draper','holladay','southJordan'], 3);
+                        addScore(['sandy'], 2);
+                        break;
+                    case 'budget-premium':
+                        addScore(['draper','holladay','cottonwoodHeights'], 3);
+                        break;
+
+                    // Priority
+                    case 'priority-schools':
+                        addScore(['draper','cottonwoodHeights','sandy','southJordan'], 3);
+                        addScore(['riverton'], 2);
+                        break;
+                    case 'priority-outdoor':
+                        addScore(['cottonwoodHeights','draper'], 4);
+                        addScore(['sandy','holladay'], 2);
+                        addScore(['bluffdale'], 1);
+                        break;
+                    case 'priority-commute':
+                        addScore(['millcreek','holladay','sandy'], 3);
+                        addScore(['cottonwoodHeights'], 2);
+                        break;
+                    case 'priority-community':
+                        addScore(['holladay','riverton','southJordan'], 3);
+                        addScore(['millcreek'], 2);
+                        break;
+
+                    // Skiing
+                    case 'ski-never':
+                        addScore(['herriman','riverton','southJordan'], 2);
+                        break;
+                    case 'ski-casual':
+                        addScore(['sandy','draper','southJordan'], 2);
+                        break;
+                    case 'ski-regular':
+                        addScore(['cottonwoodHeights','sandy','holladay'], 3);
+                        addScore(['draper'], 2);
+                        break;
+                    case 'ski-core':
+                        addScore(['cottonwoodHeights'], 4);
+                        addScore(['holladay','sandy'], 3);
+                        addScore(['draper'], 2);
+                        break;
+
+                    // Life stage
+                    case 'life-young':
+                        addScore(['millcreek','holladay','sandy'], 3);
+                        addScore(['cottonwoodHeights'], 1);
+                        break;
+                    case 'life-youngfam':
+                        addScore(['southJordan','riverton','herriman','sandy'], 3);
+                        addScore(['draper','bluffdale'], 2);
+                        break;
+                    case 'life-established':
+                        addScore(['draper','cottonwoodHeights','sandy','southJordan'], 3);
+                        addScore(['holladay'], 2);
+                        break;
+                    case 'life-empty':
+                        addScore(['holladay','millcreek','cottonwoodHeights'], 3);
+                        addScore(['sandy'], 2);
+                        break;
+
+                    // Home type
+                    case 'home-starter':
+                        addScore(['millcreek','herriman','riverton'], 3);
+                        addScore(['sandy'], 2);
+                        break;
+                    case 'home-family':
+                        addScore(['southJordan','riverton','sandy','herriman'], 3);
+                        addScore(['bluffdale','draper'], 2);
+                        break;
+                    case 'home-spacious':
+                        addScore(['bluffdale','herriman','draper'], 3);
+                        addScore(['riverton','southJordan'], 2);
+                        break;
+                    case 'home-upscale':
+                        addScore(['draper','holladay','cottonwoodHeights'], 4);
+                        break;
+
+                    // Commute
+                    case 'commute-downtown':
+                        addScore(['millcreek','holladay'], 4);
+                        addScore(['sandy','cottonwoodHeights'], 3);
+                        break;
+                    case 'commute-tech':
+                        addScore(['draper','bluffdale'], 4);
+                        addScore(['southJordan','riverton','herriman'], 3);
+                        break;
+                    case 'commute-remote':
+                        addScore(['herriman','bluffdale','riverton','cottonwoodHeights'], 2);
+                        break;
+                    case 'commute-varied':
+                        addScore(['sandy','southJordan','draper'], 2);
+                        break;
+
+                    // Walkability
+                    case 'walk-must':
+                        addScore(['holladay','millcreek'], 4);
+                        addScore(['sandy','southJordan'], 2);
+                        break;
+                    case 'walk-nice':
+                        addScore(['sandy','southJordan','riverton'], 2);
+                        break;
+                    case 'walk-not':
+                        addScore(['herriman','bluffdale','riverton'], 3);
+                        addScore(['draper'], 2);
+                        break;
+
+                    // Neighborhood age
+                    case 'age-established':
+                        addScore(['holladay','cottonwoodHeights','millcreek','sandy'], 3);
+                        break;
+                    case 'age-newer':
+                        addScore(['herriman','bluffdale','southJordan'], 3);
+                        addScore(['draper','riverton'], 2);
+                        break;
+                    case 'age-mix':
+                        addScore(['sandy','draper','southJordan','riverton'], 2);
+                        break;
+
+                    // Dining/nightlife vibe
+                    case 'vibe-urban':
+                        addScore(['millcreek','holladay','sandy'], 3);
+                        addScore(['draper','cottonwoodHeights'], 1);
+                        break;
+                    case 'vibe-suburban':
+                        addScore(['riverton','southJordan','sandy','draper'], 2);
+                        break;
+                    case 'vibe-quiet':
+                        addScore(['bluffdale','herriman','cottonwoodHeights'], 3);
+                        addScore(['riverton'], 2);
+                        break;
+
+                    // Quality of life
+                    case 'qol-views':
+                        addScore(['cottonwoodHeights','draper'], 4);
+                        addScore(['holladay','sandy'], 2);
+                        break;
+                    case 'qol-convenience':
+                        addScore(['sandy','millcreek','holladay'], 3);
+                        addScore(['southJordan'], 2);
+                        break;
+                    case 'qol-space':
+                        addScore(['bluffdale','herriman'], 4);
+                        addScore(['riverton','draper'], 2);
+                        break;
+                    case 'qol-value':
+                        addScore(['herriman','riverton','millcreek'], 3);
+                        addScore(['bluffdale','sandy'], 2);
+                        break;
+                }
+            });
+        }
+
+        function addScore(suburbKeys, points) {
+            suburbKeys.forEach(k => {
+                if (suburbs[k]) suburbs[k].scores.total += points;
+            });
+        }
+
+        function selectOption(el) {
+            const card = el.closest('.question-card');
+            card.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            card.querySelector('.btn-next').disabled = false;
+            answers[currentQ] = el.dataset.value;
+        }
+
+        function nextQuestion() {
+            if (currentQ >= totalQ - 1) return;
+            document.querySelectorAll('.question-card')[currentQ].classList.remove('active');
+            currentQ++;
+            document.querySelectorAll('.question-card')[currentQ].classList.add('active');
+            updateProgress();
+            // Restore selection if going forward to a previously answered question
+            restoreSelection();
+        }
+
+        function prevQuestion() {
+            if (currentQ <= 0) return;
+            document.querySelectorAll('.question-card')[currentQ].classList.remove('active');
+            currentQ--;
+            document.querySelectorAll('.question-card')[currentQ].classList.add('active');
+            updateProgress();
+            restoreSelection();
+        }
+
+        function restoreSelection() {
+            const card = document.querySelectorAll('.question-card')[currentQ];
+            card.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+            if (answers[currentQ]) {
+                const saved = card.querySelector(`[data-value="${answers[currentQ]}"]`);
+                if (saved) {
+                    saved.classList.add('selected');
+                    card.querySelector('.btn-next').disabled = false;
+                }
+            } else {
+                card.querySelector('.btn-next').disabled = true;
+            }
+        }
+
+        function updateProgress() {
+            const pct = Math.round((currentQ / totalQ) * 100);
+            document.getElementById('q-current').textContent = currentQ + 1;
+            document.getElementById('q-percent').textContent = pct + '%';
+            document.getElementById('q-fill').style.width = pct + '%';
+        }
+
+        function showResults() {
+            scoreSuburbs();
+
+            // Sort suburbs by score
+            const ranked = Object.keys(suburbs)
+                .map(k => ({ key: k, ...suburbs[k] }))
+                .sort((a, b) => b.scores.total - a.scores.total);
+
+            const top3 = ranked.slice(0, 3);
+            const maxScore = top3[0].scores.total;
+
+            document.getElementById('quiz-container').style.display = 'none';
+            document.querySelector('.quiz-progress').style.display = 'none';
+
+            const list = document.getElementById('results-list');
+            list.innerHTML = '';
+
+            top3.forEach((s, i) => {
+                const pct = Math.round((s.scores.total / maxScore) * 100);
+                const isTop = i === 0;
+                const matchLabel = isTop ? 'Best Match' : 'Great Fit';
+                const matchClass = isTop ? 'match-high' : 'match-good';
+                const cardClass = isTop ? 'result-suburb top-match' : 'result-suburb';
+
+                list.innerHTML += `
+                    <div class="${cardClass}">
+                        <div class="result-suburb-header">
+                            <h3>${i + 1}. ${s.name}</h3>
+                            <span class="match-badge ${matchClass}">${matchLabel}</span>
+                        </div>
+                        <p>${s.vibe}</p>
+                        <div class="result-suburb-stats">
+                            <div class="result-stat"><strong>Price Range:</strong> ${s.price}</div>
+                            <div class="result-stat"><strong>Commute:</strong> ${s.commute}</div>
+                            <div class="result-stat"><strong>Schools:</strong> ${s.schools}</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('results').classList.add('active');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Update progress to 100%
+            document.getElementById('q-fill').style.width = '100%';
+            document.getElementById('q-percent').textContent = '100%';
+        }
+
+        function retakeQuiz() {
+            answers.length = 0;
+            currentQ = 0;
+            document.getElementById('results').classList.remove('active');
+            document.getElementById('quiz-container').style.display = 'block';
+            document.querySelector('.quiz-progress').style.display = 'block';
+            document.querySelectorAll('.question-card').forEach((c, i) => {
+                c.classList.toggle('active', i === 0);
+                c.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                c.querySelector('.btn-next').disabled = true;
+            });
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

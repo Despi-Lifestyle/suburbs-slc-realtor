@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <title>SLC Suburbs Market Report | Natalie Griffith</title>
+    <meta name="description" content="Current market conditions, price trends, inventory levels, and forecasts for Salt Lake City's 9 suburbs. Updated data to help you time your purchase.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SLC Suburbs Market Report | Natalie Griffith">
+    <meta property="og:description" content="Current market conditions, price trends, inventory levels, and forecasts for Salt Lake City's 9 suburbs.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SLC Suburbs Market Report | Natalie Griffith">
+    <meta name="twitter:description" content="Current market conditions, price trends, inventory levels, and forecasts for Salt Lake City's 9 suburbs.">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--gold:#C8A84E;--gold-light:#E8D08C;--gold-dark:#A8882E;--black:#1A1A1A;--charcoal:#2D2D2D;--slate:#4A4A4A;--warm-gray:#8A8378;--light-warm:#F7F4EF;--cream:#FDFBF7;--white:#FFFFFF;--green:#2E7D32;--red:#C62828;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Plus Jakarta Sans',-apple-system,sans-serif}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);color:var(--black);background:var(--cream);-webkit-font-smoothing:antialiased}
+        .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px;position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
+        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
+        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:500}
+        .back-link:hover{color:var(--gold-dark)}
+        .container{max-width:900px;margin:0 auto;padding:0 24px}
+        .hero{padding:60px 24px 40px;text-align:center;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .badge{display:inline-block;background:rgba(200,168,78,0.12);color:var(--gold-dark);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+        .hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;margin-bottom:12px}
+        .hero h1 em{color:var(--gold);font-style:italic}
+        .hero p{color:var(--warm-gray);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7}
+        .updated{font-size:0.78rem;color:var(--warm-gray);margin-top:12px;font-style:italic}
+        .content{padding:56px 24px 80px}
+
+        .section-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .section-label::after{content:'';width:40px;height:1.5px;background:var(--gold)}
+        .section-title{font-family:var(--font-display);font-size:1.5rem;margin-bottom:8px}
+        .section-desc{color:var(--warm-gray);font-size:0.9rem;margin-bottom:28px;line-height:1.6}
+
+        /* Big Numbers */
+        .big-number-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:48px}
+        .big-number{background:var(--white);border-radius:12px;padding:28px 24px;border:1px solid rgba(0,0,0,0.05);text-align:center}
+        .big-number .number{font-family:var(--font-display);font-size:2.2rem;color:var(--gold-dark);margin-bottom:4px}
+        .big-number .label{font-size:0.78rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.06em}
+        .big-number .change{font-size:0.75rem;font-weight:700;margin-top:6px}
+        .change-up{color:var(--green)}
+        .change-down{color:var(--red)}
+        .change-flat{color:var(--warm-gray)}
+
+        /* Market Cards */
+        .market-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:48px}
+        @media(min-width:640px){.market-grid{grid-template-columns:1fr 1fr}}
+        .market-card{background:var(--white);border-radius:12px;padding:24px;border:1px solid rgba(0,0,0,0.05)}
+        .market-card h3{font-family:var(--font-display);font-size:1.05rem;margin-bottom:4px}
+        .market-card .price{font-family:var(--font-display);font-size:1.6rem;color:var(--gold-dark);margin-bottom:2px}
+        .market-card .change-line{font-size:0.78rem;font-weight:600;margin-bottom:12px}
+        .market-card .detail-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid rgba(0,0,0,0.04);font-size:0.82rem}
+        .market-card .detail-row .detail-label{color:var(--warm-gray)}
+        .market-card .detail-row .detail-value{font-weight:600;color:var(--black)}
+        .market-badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:0.04em;margin-top:8px}
+        .badge-buyer{background:#E8F5E9;color:var(--green)}
+        .badge-seller{background:#FFEBEE;color:var(--red)}
+        .badge-balanced{background:var(--light-warm);color:var(--warm-gray)}
+
+        /* Forecast */
+        .forecast-box{background:linear-gradient(135deg,var(--black),var(--charcoal));border-radius:16px;padding:36px 32px;margin-bottom:48px;color:var(--white)}
+        .forecast-box h3{font-family:var(--font-display);font-size:1.3rem;color:var(--gold-light);margin-bottom:16px}
+        .forecast-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+        .forecast-item:last-child{margin-bottom:0}
+        .forecast-icon{width:36px;height:36px;background:rgba(200,168,78,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .forecast-icon svg{width:18px;height:18px;fill:var(--gold-light)}
+        .forecast-text h4{font-size:0.9rem;color:var(--white);margin-bottom:2px}
+        .forecast-text p{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.55}
+
+        .note-box{background:var(--white);border-radius:12px;padding:24px 28px;border-left:4px solid var(--gold);margin-bottom:48px}
+        .note-box h4{font-family:var(--font-display);font-size:1rem;margin-bottom:6px}
+        .note-box p{font-size:0.85rem;color:var(--slate);line-height:1.65}
+
+        .cta-section{text-align:center;padding:48px 24px;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.05)}
+        .cta-section h2{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
+        .cta-section p{color:var(--warm-gray);font-size:0.9rem;margin-bottom:24px}
+        .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
+        .cta-btn:hover{background:var(--gold-dark)}
+        .footer{padding:40px 24px;text-align:center;margin-top:60px}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
+        <a href="../index.html" class="back-link">← All Resources</a>
+    </div></nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Market Data</div>
+            <h1>SLC Suburbs <em>Market Report</em></h1>
+            <p>Current market conditions, price trends, inventory levels, and forecasts for each suburb. Data to help you time your purchase right.</p>
+            <p class="updated">Based on 2025 market data from Redfin, Zillow, and MLS reports</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+
+            <!-- Market Snapshot -->
+            <div class="big-number-grid reveal">
+                <div class="big-number"><div class="number">$577K</div><div class="label">Utah median home price</div><div class="change change-up">↑ 2.3% year over year</div></div>
+                <div class="big-number"><div class="number">50</div><div class="label">Median days on market</div><div class="change change-flat">Flat vs. last year</div></div>
+                <div class="big-number"><div class="number">3.8 mo</div><div class="label">Available inventory</div><div class="change change-up">↑ More balanced market</div></div>
+                <div class="big-number"><div class="number">+2–4%</div><div class="label">2026 price forecast</div><div class="change change-flat">Modest, steady growth</div></div>
+            </div>
+
+            <!-- By Suburb -->
+            <div class="section-label reveal">By Suburb</div>
+            <h2 class="section-title reveal">Market conditions in each neighborhood</h2>
+            <p class="section-desc reveal">How each of the 9 suburbs is performing right now.</p>
+
+            <div class="market-grid">
+                <div class="market-card reveal">
+                    <h3>Draper</h3>
+                    <div class="price">$830K</div>
+                    <div class="change-line change-up">↑ 1.5% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$257 (↑ 5.8%)</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">58 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Homes Sold (Nov)</span><span class="detail-value">199 (↑ from 165)</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Moderate</span></div>
+                    <span class="market-badge badge-balanced">Balanced</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Sandy</h3>
+                    <div class="price">$665K</div>
+                    <div class="change-line change-up">↑ 2.4% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$261 (↑ 5.2%)</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">~10 days (hot)</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Strong demand</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Low</span></div>
+                    <span class="market-badge badge-seller">Seller's Market</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>South Jordan</h3>
+                    <div class="price">$648K</div>
+                    <div class="change-line change-down">↓ 0.4% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$240</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">45–55 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Softening slightly</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Moderate</span></div>
+                    <span class="market-badge badge-buyer">Buyer Opportunity</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Cottonwood Heights</h3>
+                    <div class="price">$856K</div>
+                    <div class="change-line change-up">↑ 25.7% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$295</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">~40 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Strong appreciation</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Very Low</span></div>
+                    <span class="market-badge badge-seller">Seller's Market</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Holladay</h3>
+                    <div class="price">$768K</div>
+                    <div class="change-line change-down">↓ 3.4% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$290</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">50–60 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Price correction</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Moderate</span></div>
+                    <span class="market-badge badge-buyer">Buyer Opportunity</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Millcreek</h3>
+                    <div class="price">$645K</div>
+                    <div class="change-line change-up">↑ 2.9% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$260</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">~45 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Steady growth</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Moderate</span></div>
+                    <span class="market-badge badge-balanced">Balanced</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Herriman</h3>
+                    <div class="price">$575K</div>
+                    <div class="change-line change-down">↓ 4.9% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$210</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">50–60 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">New construction adding supply</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Higher (new builds)</span></div>
+                    <span class="market-badge badge-buyer">Buyer Opportunity</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Riverton</h3>
+                    <div class="price">$620K</div>
+                    <div class="change-line change-down">↓ 2.3% year over year</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$225</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">~50 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Trend</span><span class="detail-value">Slight softening</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Moderate</span></div>
+                    <span class="market-badge badge-balanced">Balanced</span>
+                </div>
+
+                <div class="market-card reveal">
+                    <h3>Bluffdale</h3>
+                    <div class="price">$700K</div>
+                    <div class="change-line change-up">↑ Price appreciation continuing</div>
+                    <div class="detail-row"><span class="detail-label">Price/SqFt</span><span class="detail-value">$230 (↑ 13%)</span></div>
+                    <div class="detail-row"><span class="detail-label">Days on Market</span><span class="detail-value">42 days</span></div>
+                    <div class="detail-row"><span class="detail-label">Competition Score</span><span class="detail-value">65/100 (Competitive)</span></div>
+                    <div class="detail-row"><span class="detail-label">Inventory</span><span class="detail-value">Low-Moderate</span></div>
+                    <span class="market-badge badge-seller">Competitive</span>
+                </div>
+            </div>
+
+            <!-- 2026 Forecast -->
+            <div class="forecast-box reveal">
+                <h3>What to Expect in 2026</h3>
+                <div class="forecast-item">
+                    <div class="forecast-icon"><svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></div>
+                    <div class="forecast-text"><h4>Modest Price Growth (2–4%)</h4><p>Prices are expected to rise modestly statewide. Suburbs closest to downtown and ski canyons will likely see the strongest appreciation.</p></div>
+                </div>
+                <div class="forecast-item">
+                    <div class="forecast-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2V7h2v10z"/></svg></div>
+                    <div class="forecast-text"><h4>More Inventory Coming</h4><p>New construction in Herriman, South Jordan, and Bluffdale is adding supply. Expect more options and slightly less competition in those areas.</p></div>
+                </div>
+                <div class="forecast-item">
+                    <div class="forecast-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+                    <div class="forecast-text"><h4>Mortgage Rates Easing</h4><p>Rates are expected to gradually improve through 2026, which could increase buyer demand. The best deals may be available in early 2026 before rate cuts bring more buyers in.</p></div>
+                </div>
+                <div class="forecast-item">
+                    <div class="forecast-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <div class="forecast-text"><h4>Best Buyer Opportunities</h4><p>Herriman (new builds + inventory), South Jordan (slight softening), and Holladay (price correction) offer the most negotiating room for buyers right now.</p></div>
+                </div>
+            </div>
+
+            <div class="note-box reveal">
+                <h4>A note about timing the market</h4>
+                <p>Everyone wants to "time the market perfectly" — but the reality is that the best time to buy is when you're financially ready, you've found the right neighborhood, and the math works for your family. Waiting for a crash that may never come costs you in rising rents and missed appreciation. That said, if you're flexible on timing, late fall and winter in Utah consistently offer less competition and more negotiating power.</p>
+            </div>
+
+            <div class="cta-section reveal">
+                <h2>Want personalized market insights?</h2>
+                <p>Natalie tracks these suburbs daily. Get the full relocation guide or reach out for a real-time market update specific to your situation.</p>
+                <a href="../relocation-guide/" class="cta-btn">Get the Free Relocation Guide →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+
+    <script>
+        const reveals=document.querySelectorAll('.reveal');
+        const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+        reveals.forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>

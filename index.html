@@ -78,11 +78,11 @@
         .nav-contact { display: flex; align-items: center; gap: 20px; }
         .nav-phone { font-size: 0.85rem; color: var(--slate); text-decoration: none; font-weight: 500; display: none; }
         @media (min-width: 640px) { .nav-phone { display: block; } }
-        .nav-yt {
+        .nav-cta {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: var(--black);
+            background: var(--gold);
             color: var(--white);
             padding: 10px 18px;
             border-radius: 6px;
@@ -90,10 +90,10 @@
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.04em;
-            transition: opacity 0.3s;
+            transition: background 0.3s;
         }
-        .nav-yt:hover { opacity: 0.85; }
-        .nav-yt svg { width: 16px; height: 16px; fill: #FF0000; }
+        .nav-cta:hover { background: var(--gold-dark); }
+        .nav-cta svg { width: 16px; height: 16px; fill: var(--white); }
 
         /* ── Hero ── */
         .hero {
@@ -451,9 +451,9 @@
             </a>
             <div class="nav-contact">
                 <a href="tel:+18019498634" class="nav-phone">(801) 949-8634</a>
-                <a href="https://www.youtube.com/@LivingintheSuburbsOfSLC" target="_blank" class="nav-yt">
-                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    Watch on YouTube
+                <a href="relocation-guide/" class="nav-cta">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    Get the Free Guide
                 </a>
             </div>
         </div>
@@ -474,17 +474,16 @@
         </div>
     </section>
 
-    <!-- Featured / Gated Resources -->
+    <!-- Featured: Relocation Guide -->
     <section class="resources-section">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-label">In-Depth Guides</div>
-                <h2>Comprehensive relocation resources</h2>
-                <p>Our most detailed guides — enter your info and get instant access.</p>
+                <div class="section-label">Featured Guide</div>
+                <h2>Start here</h2>
+                <p>The most comprehensive free resource for families relocating to Salt Lake City.</p>
             </div>
 
             <div class="resources-grid resources-grid-featured">
-                <!-- Featured: Relocation Guide -->
                 <div class="resource-card resource-card-featured reveal">
                     <div class="resource-card-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2520 100%);">
                         <div class="resource-card-icon" style="width:72px;height:72px;border-radius:18px;">
@@ -498,62 +497,17 @@
                         <a href="relocation-guide/" class="resource-card-cta-btn">Get the Free Guide →</a>
                     </div>
                 </div>
-
-                <!-- Suburb Comparison -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-image" style="background: linear-gradient(135deg, #2d2520, #3d3530);">
-                        <div class="resource-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M10 3H4a1 1 0 00-1 1v6a1 1 0 001 1h6a1 1 0 001-1V4a1 1 0 00-1-1zm10 0h-6a1 1 0 00-1 1v6a1 1 0 001 1h6a1 1 0 001-1V4a1 1 0 00-1-1zM10 13H4a1 1 0 00-1 1v6a1 1 0 001 1h6a1 1 0 001-1v-6a1 1 0 00-1-1zm10 0h-6a1 1 0 00-1 1v6a1 1 0 001 1h6a1 1 0 001-1v-6a1 1 0 00-1-1z"/></svg>
-                        </div>
-                    </div>
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-guide">Comparison Guide — Coming Soon</span>
-                        <h3>Side-by-Side Suburb Comparison Chart</h3>
-                        <p>All 9 suburbs compared head-to-head: median prices, school scores, commute times, walkability, and lifestyle ratings in one easy reference sheet.</p>
-                        <span class="resource-card-cta-btn" style="opacity:0.5;pointer-events:none;cursor:default">Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- Market Report -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-image" style="background: linear-gradient(135deg, #1a2030, #2a3040);">
-                        <div class="resource-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
-                        </div>
-                    </div>
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-guide">Market Data — Coming Soon</span>
-                        <h3>SLC Suburbs Market Report</h3>
-                        <p>Current market conditions, price trends, inventory levels, and forecasts for each suburb. Updated data to help you time your purchase right.</p>
-                        <span class="resource-card-cta-btn" style="opacity:0.5;pointer-events:none;cursor:default">Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- Relocation Planner -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-image" style="background: linear-gradient(135deg, #20241a, #303520);">
-                        <div class="resource-card-icon">
-                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
-                        </div>
-                    </div>
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-guide">Planner — Coming Soon</span>
-                        <h3>Relocation Timeline & Moving Planner</h3>
-                        <p>A week-by-week timeline from "thinking about it" to move-in day. Tasks, deadlines, and pro tips so nothing falls through the cracks.</p>
-                        <span class="resource-card-cta-btn" style="opacity:0.5;pointer-events:none;cursor:default">Coming Soon</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Free / Ungated Resources -->
+    <!-- Section 1: Explore Salt Lake City -->
     <section class="resources-section" style="background: var(--white); padding-top: 80px; padding-bottom: 80px;">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-label">Quick References</div>
-                <h2>Instant access — no signup needed</h2>
-                <p>Quick-reference resources you can view or download right now.</p>
+                <div class="section-label">Explore Salt Lake City</div>
+                <h2>Researching the area? Start with these</h2>
+                <p>Cost of living, outdoor lifestyle, and what to expect when you get here.</p>
             </div>
 
             <div class="resources-grid resources-grid-standard">
@@ -564,45 +518,6 @@
                         <h3>Utah Cost of Living Snapshot</h3>
                         <p>Housing, groceries, utilities, and transportation costs compared to national averages. See what your dollar buys in SLC suburbs.</p>
                         <a href="free-resources/cost-of-living.html" class="resource-card-cta">
-                            View Now
-                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- First-Time Buyers -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-free">Free — Interactive</span>
-                        <h3>First-Time Buyer Checklist for Utah</h3>
-                        <p>Utah-specific steps for first-time buyers including down payment programs, inspection must-knows, and closing cost expectations. Interactive — check off items as you go.</p>
-                        <a href="free-resources/first-time-buyer.html" class="resource-card-cta">
-                            Start Checklist
-                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Seasonal Tips -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-free">Free — No Signup</span>
-                        <h3>Seasonal Moving Tips for Utah</h3>
-                        <p>The best (and worst) times to move to Utah, what to expect each season, and how weather impacts the home buying process.</p>
-                        <a href="free-resources/seasonal-moving-tips.html" class="resource-card-cta">
-                            View Now
-                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Schools Guide -->
-                <div class="resource-card reveal">
-                    <div class="resource-card-body">
-                        <span class="resource-badge badge-free">Free — No Signup</span>
-                        <h3>SLC Suburbs School District Overview</h3>
-                        <p>Quick breakdown of school districts, top-rated schools, and what parents should know about Utah's education system.</p>
-                        <a href="free-resources/school-districts.html" class="resource-card-cta">
                             View Now
                             <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                         </a>
@@ -622,14 +537,118 @@
                     </div>
                 </div>
 
+                <!-- Seasonal Tips -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-free">Free — No Signup</span>
+                        <h3>Seasonal Moving Tips for Utah</h3>
+                        <p>The best (and worst) times to move to Utah, what to expect each season, and how weather impacts the home buying process.</p>
+                        <a href="free-resources/seasonal-moving-tips.html" class="resource-card-cta">
+                            View Now
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Choose Your Suburb -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Choose Your Suburb</div>
+                <h2>Narrowing it down? Compare neighborhoods</h2>
+                <p>School ratings, suburb-by-suburb data, and market trends to help you decide.</p>
+            </div>
+
+            <div class="resources-grid resources-grid-standard">
+                <!-- Schools Guide -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-free">Free — No Signup</span>
+                        <h3>SLC Suburbs School District Overview</h3>
+                        <p>Quick breakdown of school districts, top-rated schools, and what parents should know about Utah's education system.</p>
+                        <a href="free-resources/school-districts.html" class="resource-card-cta">
+                            View Now
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Suburb Comparison -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-guide">Comparison Guide</span>
+                        <h3>Side-by-Side Suburb Comparison Chart</h3>
+                        <p>All 9 suburbs compared head-to-head: median prices, school scores, commute times, walkability, and lifestyle ratings in one easy reference sheet.</p>
+                        <a href="free-resources/suburb-comparison.html" class="resource-card-cta">
+                            View Comparison
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Market Report -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-guide">Market Data</span>
+                        <h3>SLC Suburbs Market Report</h3>
+                        <p>Current market conditions, price trends, inventory levels, and forecasts for each suburb. Updated data to help you time your purchase right.</p>
+                        <a href="free-resources/market-report.html" class="resource-card-cta">
+                            View Report
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Ready to Buy? -->
+    <section class="resources-section" style="background: var(--white); padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Ready to Buy?</div>
+                <h2>Taking the next step? Tools to keep you on track</h2>
+                <p>Checklists, timelines, and planning tools for when you're ready to make it happen.</p>
+            </div>
+
+            <div class="resources-grid resources-grid-standard">
+                <!-- First-Time Buyers -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-free">Free — Interactive</span>
+                        <h3>First-Time Buyer Checklist for Utah</h3>
+                        <p>Utah-specific steps for first-time buyers including down payment programs, inspection must-knows, and closing cost expectations. Interactive — check off items as you go.</p>
+                        <a href="free-resources/first-time-buyer.html" class="resource-card-cta">
+                            Start Checklist
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Relocation Planner -->
+                <div class="resource-card reveal">
+                    <div class="resource-card-body">
+                        <span class="resource-badge badge-free">Free — Interactive</span>
+                        <h3>Relocation Timeline & Moving Planner</h3>
+                        <p>A week-by-week timeline from "thinking about it" to move-in day. Tasks, deadlines, and pro tips so nothing falls through the cracks. Interactive — check off items as you go.</p>
+                        <a href="free-resources/relocation-planner.html" class="resource-card-cta">
+                            Start Planner
+                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Is Utah Right Quiz -->
                 <div class="resource-card reveal">
                     <div class="resource-card-body">
-                        <span class="resource-badge badge-free">Free — Coming Soon</span>
+                        <span class="resource-badge badge-free">Free — Interactive Quiz</span>
                         <h3>"Is Utah Right for You?" Quiz</h3>
                         <p>Answer 10 quick questions about your lifestyle, priorities, and budget — we'll tell you which SLC suburb is your best match.</p>
-                        <a href="#" class="resource-card-cta" style="opacity:0.5;pointer-events:none">
-                            Coming Soon
+                        <a href="free-resources/quiz.html" class="resource-card-cta">
+                            Take the Quiz
                             <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                         </a>
                     </div>
@@ -652,9 +671,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
-            <a href="https://griffithteamre.com" target="_blank">Website</a>
-            <a href="https://www.youtube.com/@LivingintheSuburbsOfSLC" target="_blank">YouTube</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://griffithteamre.com" target="_blank" rel="noopener noreferrer">Website</a>
+            <a href="https://www.youtube.com/@LivingintheSuburbsOfSLC" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://www.instagram.com/nataliegsuburbspecialistofslc" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="mailto:natalie@griffithteamre.com">Email</a>
         </div>
         <p class="footer-brand">Natalie Griffith · Realty One Group Signature South Valley · Lic# 8714228-SAOO</p>

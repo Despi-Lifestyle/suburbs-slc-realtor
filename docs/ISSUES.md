@@ -42,18 +42,16 @@ Discovered during initial code review on March 2, 2026.
 ## Medium (Functional issues)
 
 ### ISS-006: Placeholder social media links
-- **Status**: Partially resolved (YouTube updated, Instagram still placeholder)
+- **Status**: RESOLVED
 - **Phase**: 2
-- **Description**: YouTube and Instagram links point to generic `youtube.com` and `instagram.com` instead of Natalie's actual profiles.
-- **Fix**: YouTube updated to `@LivingintheSuburbsOfSLC` in index.html (2 links) and thank-you.html (1 link). Instagram still needs real URL.
-- **Files**: `index.html` lines 447, 649, 650; `thank-you.html` line 71
+- **Description**: YouTube and Instagram links pointed to generic `youtube.com` and `instagram.com` instead of Natalie's actual profiles.
+- **Fix**: YouTube updated to `@LivingintheSuburbsOfSLC` in all pages. Instagram updated to `nataliegsuburbspecialistofslc` in index.html footer.
 
 ### ISS-007: Three resource cards link to `#`
-- **Status**: RESOLVED (commit 2626c27)
+- **Status**: RESOLVED (fully built)
 - **Phase**: 3
-- **File**: `index.html` lines 506, 521, 536
-- **Description**: "Suburb Comparison Chart", "2025 Market Report", and "Relocation Timeline & Planner" cards all link to `#` with no actual content pages.
-- **Fix**: Converted all three to "Coming Soon" state matching the existing quiz card pattern.
+- **Description**: "Suburb Comparison Chart", "Market Report", "Relocation Timeline", and "Quiz" were Coming Soon placeholders.
+- **Fix**: All 4 pages built with real content: `suburb-comparison.html`, `market-report.html`, `relocation-planner.html`, `quiz.html`. All linked from index.html. Zero Coming Soon cards remain.
 
 ### ISS-008: No Open Graph / social meta tags
 - **Status**: RESOLVED (partial — text tags added, og:image pending)
@@ -108,7 +106,7 @@ Discovered during initial code review on March 2, 2026.
 | ISS-003 | Critical | 1 | RESOLVED |
 | ISS-004 | Critical | 1 | RESOLVED |
 | ISS-005 | Critical | 2 | Open |
-| ISS-006 | Medium | 2 | Open (blocked — waiting on URLs) |
+| ISS-006 | Medium | 2 | RESOLVED |
 | ISS-007 | Medium | 3 | RESOLVED |
 | ISS-008 | Medium | 2 | RESOLVED (og:image pending) |
 | ISS-009 | Medium | 2 | RESOLVED |
