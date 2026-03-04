@@ -6,29 +6,38 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 
 ## [Unreleased]
 
-### Phase 1 — Foundation
-- [ ] Reorganize file structure to match target architecture
-- [ ] Fix all broken internal links
-- [ ] Remove Cloudflare-specific code from index.html
-- [ ] Create .gitignore, README, CLAUDE.md, and project docs
-- [ ] Initial deploy to Vercel
-
-### Phase 2 — Functionality
+### Remaining
 - [ ] Integrate form backend (Formspree or custom)
 - [ ] Set up Lofty CRM connection
-- [ ] Add localStorage to first-time-buyer checklist
-- [ ] Add Open Graph / social meta tags
-- [ ] Add favicon
-- [ ] Replace placeholder social links
-- [ ] Update copyright year
-
-### Phase 3 — Content Completion
 - [ ] Expand PDF guide to full 40+ pages
-- [ ] Build Suburb Comparison Chart page
-- [ ] Build Market Report page
-- [ ] Build Relocation Timeline/Planner page
-- [ ] Add agent headshot
+- [ ] Add agent headshot / og:image
 - [ ] Explore password-protected internal resource section
+
+---
+
+## [0.3.0] — 2026-03-04
+
+### Added
+- "Download as PDF" button on 4 resource pages: Suburb Comparison, Market Report, First-Time Buyer Checklist, and Relocation Planner
+- Print stylesheets with Natalie's branding (header + footer) baked into every PDF
+- Print-optimized layout: hides nav/footer/CTAs, forces white background, handles page breaks, adapts dark forecast box for print
+
+---
+
+## [0.2.0] — 2026-03-04
+
+### Added
+- Interactive "Is Utah Right for You?" quiz (10 questions, weighted suburb matching)
+- Relocation Timeline & Moving Planner (42 tasks, 6 phases, localStorage persistence)
+- Side-by-Side Suburb Comparison Chart (table + 9 profile cards with real data)
+- SLC Suburbs Market Report (market snapshot + 9 suburb cards + 2026 forecast)
+- All 4 new pages linked from hub page
+
+### Changed
+- Reorganized hub page from gated/ungated sections to user-journey stages (Explore → Choose → Buy)
+- Replaced YouTube nav button with "Get the Free Guide" gold CTA
+- Updated Instagram link to real URL
+- Added rel="noopener noreferrer" to external links
 
 ---
 

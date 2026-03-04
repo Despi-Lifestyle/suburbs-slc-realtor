@@ -88,9 +88,39 @@
         .footer p{font-size:0.72rem;color:var(--warm-gray)}
         .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
         .reveal.visible{opacity:1;transform:translateY(0)}
+
+        .download-btn{display:inline-flex;align-items:center;gap:8px;background:var(--charcoal);color:var(--white);padding:12px 24px;border-radius:8px;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s;margin-top:20px}
+        .download-btn:hover{background:var(--black)}
+        .print-header,.print-footer{display:none}
+
+        @media print{
+            .nav,.footer,.download-btn,.back-link{display:none!important}
+            .print-header,.print-footer{display:block!important}
+            .print-header{text-align:center;padding:20px 0 10px;border-bottom:2px solid #C8A84E;margin-bottom:20px}
+            .print-header h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;margin-bottom:2px}
+            .print-header p{font-size:0.75rem;color:#8A8378}
+            .print-footer{text-align:center;padding:16px 0;border-top:1px solid #ddd;margin-top:24px;font-size:0.7rem;color:#8A8378}
+            body{background:#fff!important}
+            .hero{padding:30px 0 20px;background:#fff!important;border:none}
+            .reveal{opacity:1!important;transform:none!important}
+            .content{padding:20px 0}
+            .market-card{break-inside:avoid;box-shadow:none!important}
+            .forecast-box{background:#f5f5f5!important;color:#1A1A1A!important;break-inside:avoid}
+            .forecast-box h3{color:#A8882E!important}
+            .forecast-text h4{color:#1A1A1A!important}
+            .forecast-text p{color:#4A4A4A!important}
+            .forecast-icon{background:rgba(200,168,78,0.2)!important}
+            .forecast-icon svg{fill:#A8882E!important}
+            .cta-section{display:none!important}
+            .note-box{break-inside:avoid}
+        }
     </style>
 </head>
 <body>
+    <div class="print-header">
+        <h2>Natalie Griffith · SLC Suburbs Specialist</h2>
+        <p>Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com · griffithteamre.com</p>
+    </div>
     <nav class="nav"><div class="nav-inner">
         <a href="../index.html" class="nav-brand"><div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div><div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div></a>
         <a href="../index.html" class="back-link">← All Resources</a>
@@ -102,6 +132,7 @@
             <h1>SLC Suburbs <em>Market Report</em></h1>
             <p>Current market conditions, price trends, inventory levels, and forecasts for each suburb. Data to help you time your purchase right.</p>
             <p class="updated">Based on 2025 market data from Redfin, Zillow, and MLS reports</p>
+            <button class="download-btn" onclick="window.print()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download as PDF</button>
         </div>
     </section>
 
@@ -256,6 +287,9 @@
         </div>
     </section>
 
+    <div class="print-footer">
+        <p>Prepared by Natalie Griffith · Realty One Group Signature South Valley · griffithteamre.com · (801) 949-8634</p>
+    </div>
     <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
 
     <script>
