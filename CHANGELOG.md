@@ -7,10 +7,46 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 ## [Unreleased]
 
 ### Remaining
-- [ ] Integrate form backend (Formspree or custom)
-- [ ] Set up Lofty CRM connection
-- [ ] Add agent headshot / og:image
+- [ ] Replace `YOUR_FORM_ID` in relocation-guide form with Formspree endpoint
+- [ ] Set up Lofty CRM connection (Zapier bridge from Formspree)
+- [ ] Add agent headshot / og:image (1200x630 branded image)
+- [ ] Replace `BASE_URL` in UTM link builder with production domain
+- [ ] Add GA4 snippet to all pages
+- [ ] Generate final PDF from relocation-guide-2026.html
 - [ ] Explore password-protected internal resource section
+
+---
+
+## [0.5.0] — 2026-03-04
+
+### Added
+- Internal UTM link builder tool at `/internal/utm-link-builder.html`
+  - Interactive link builder with dropdowns for destination, source, medium, and campaign
+  - Pre-built links table for common YouTube scenarios (6 links, copy-to-clipboard)
+  - Video description template with UTM-tracked links, ready to paste
+  - Form data vs analytics data reference guide
+  - UTM naming conventions with rules and examples
+  - Google Analytics setup instructions with code snippet
+- Lead capture form wired to Formspree (AJAX submit with redirect to thank-you page)
+- `name` attributes on all form inputs (firstName, email, phone)
+- Honeypot spam protection (`_gotcha` field)
+- Footer with Instagram link on thank-you page
+
+### Fixed
+- Footer phone/email now clickable (tel:/mailto:) across all 9 resource pages
+- 6 plain-text URLs in relocation planner now clickable links (dld.utah.gov, vote.utah.gov, immunize.utah.gov, rideuta.com)
+- Back-link CSS inconsistency on 4 pages (added flex layout)
+- `rel="noopener noreferrer"` added to external links on relocation-guide and thank-you pages
+- Brokerage name corrected to full "Realty One Group Signature South Valley"
+- Headshot placeholder text hidden from public view
+- Cost-of-living: housing badge "At Average" → "Above Average", income tax 4.85% → 4.65%
+- School districts: "Four" → "Three" school districts
+- Relocation planner: item count 42 → 41
+- Market report: Bluffdale badge corrected from "Seller's Market" to "Competitive"
+- Mobile table layout for cost-of-living suburb comparison
+- Print stylesheet fixes: color-adjust rules, school district corrections in guide
+- Quiz print stylesheet added with branded header/footer
+- Misleading "check your inbox" messaging removed from form flow
 
 ---
 

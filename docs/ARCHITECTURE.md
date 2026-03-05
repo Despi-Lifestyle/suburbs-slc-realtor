@@ -41,12 +41,21 @@ This is what was exported — everything is flat in the root with a leftover san
 ├── free-resources/
 │   ├── cost-of-living.html
 │   ├── first-time-buyer.html
+│   ├── market-report.html
 │   ├── outdoor-access.html
+│   ├── quiz.html
+│   ├── relocation-planner.html
 │   ├── school-districts.html
-│   └── seasonal-moving-tips.html
+│   ├── seasonal-moving-tips.html
+│   └── suburb-comparison.html
+├── internal/                              ← Internal tools (not linked from public pages)
+│   └── utm-link-builder.html              ← UTM link generator for YouTube/social
 ├── assets/
+│   ├── images/
+│   │   └── favicon.svg
 │   └── pdfs/
-│       └── SLC-Suburbs-Relocation-Guide.pdf
+│       ├── SLC-Suburbs-Relocation-Guide.pdf
+│       └── relocation-guide-2026.html     ← Print-ready HTML guide (40+ pages)
 ├── docs/                               ← Project documentation (not deployed)
 │   ├── PRD.md
 │   ├── ARCHITECTURE.md
