@@ -9,9 +9,18 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 ### Remaining
 - [ ] Integrate form backend (Formspree or custom)
 - [ ] Set up Lofty CRM connection
-- [ ] Expand PDF guide to full 40+ pages
 - [ ] Add agent headshot / og:image
 - [ ] Explore password-protected internal resource section
+
+---
+
+## [0.4.0] — 2026-03-04
+
+### Added
+- Full 40+ page print-ready HTML Relocation Guide (2026 Edition) at `assets/pdfs/relocation-guide-2026.html`
+- All 17 chapters: Welcome, How to Use, 9 Suburbs at a Glance overview table, 9 individual suburb profiles (South Jordan, Draper, Herriman, Sandy, Cottonwood Heights, Holladay, Millcreek, Riverton, Bluffdale), School District Comparison, Outdoor & Recreation Access, Cost of Living Breakdown, Relocation Timeline, Working with Natalie
+- Updated all suburb data to 2025 market figures (median prices, price/sqft, days on market, walk scores)
+- Print-optimized layout with branded cover page, headers, and footers on every page
 
 ---
 
