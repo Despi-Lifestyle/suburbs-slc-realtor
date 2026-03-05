@@ -797,20 +797,23 @@
                 <div id="form-container">
                     <div class="form-header">
                         <h2>Download Your Free Guide</h2>
-                        <p>Get instant access — delivered to your inbox</p>
+                        <p>Get instant access to 40+ pages of suburb insights</p>
                     </div>
-                    <form id="lead-form" onsubmit="handleSubmit(event)">
+                    <!-- TODO: Replace YOUR_FORM_ID with your Formspree endpoint ID -->
+                    <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New Lead: Relocation Guide Download">
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" placeholder="Your first name" required>
+                            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="you@email.com" required>
+                            <input type="email" id="email" name="email" placeholder="you@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="(801) 555-1234" required>
+                            <input type="tel" id="phone" name="phone" placeholder="(801) 555-1234" required>
                         </div>
                         <button type="submit" class="form-submit">Send Me the Guide →</button>
                         <p class="form-note">
@@ -824,7 +827,7 @@
                         <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                     <h3>You're all set!</h3>
-                    <p>Your relocation guide is on its way.<br>Check your inbox in the next few minutes.</p>
+                    <p>Your guide is ready!<br><a href="thank-you.html" style="color:var(--gold-dark);font-weight:700">Click here to download →</a></p>
                 </div>
             </div>
         </div>
@@ -1027,13 +1030,34 @@
     </footer>
 
     <script>
-        // Form submission handler (demo only - shows success state)
-        function handleSubmit(e) {
+        // Lead capture — submits to Formspree, redirects to thank-you page
+        // TODO: Replace YOUR_FORM_ID in the form action with your Formspree endpoint
+        document.getElementById('lead-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            document.getElementById('form-container').querySelector('form').style.display = 'none';
-            document.getElementById('form-container').querySelector('.form-header').style.display = 'none';
-            document.getElementById('form-success').classList.add('active');
-        }
+            const form = e.target;
+            const btn = form.querySelector('.form-submit');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                form.querySelector('.form-note').innerHTML = '<span style="color:#c0392b">Something went wrong. Please try again or <a href="tel:+18019498634" style="color:#c0392b;font-weight:700">call Natalie at (801) 949-8634</a>.</span>';
+            }
+        });
 
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
