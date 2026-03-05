@@ -36,23 +36,38 @@ https://github.com/Despi-Lifestyle/suburbs-slc-realtor
 | Cream | `#FDFBF7` |
 | White | `#FFFFFF` |
 
-## File Structure (target)
+## File Structure
 ```
 /
-├── index.html
+├── index.html                          ← Main resource hub (13 pages total)
 ├── relocation-guide/
-│   ├── index.html
-│   └── thank-you.html
+│   ├── index.html                      ← Lead capture (Formspree AJAX)
+│   └── thank-you.html                  ← Post-form + PDF download
 ├── free-resources/
 │   ├── cost-of-living.html
-│   ├── first-time-buyer.html
+│   ├── first-time-buyer.html           ← Interactive checklist (localStorage)
+│   ├── market-report.html              ← Market snapshot + 2026 forecast
 │   ├── outdoor-access.html
+│   ├── quiz.html                       ← "Is Utah Right for You?" (10 questions)
+│   ├── relocation-planner.html         ← 41 tasks, 6 phases (localStorage)
 │   ├── school-districts.html
-│   └── seasonal-moving-tips.html
+│   ├── seasonal-moving-tips.html
+│   └── suburb-comparison.html          ← Side-by-side comparison chart
+├── internal/                           ← Internal tools (not linked publicly)
+│   └── utm-link-builder.html           ← UTM link generator for YouTube/social
 ├── assets/
+│   ├── images/
+│   │   └── favicon.svg
 │   └── pdfs/
-│       └── SLC-Suburbs-Relocation-Guide.pdf
+│       ├── SLC-Suburbs-Relocation-Guide.pdf
+│       └── relocation-guide-2026.html  ← Print-ready HTML guide (40+ pages)
 ├── docs/
+│   ├── PRD.md
+│   ├── ARCHITECTURE.md
+│   └── ISSUES.md
+├── CHANGELOG.md
+├── README.md
+├── .gitignore
 └── CLAUDE.md
 ```
 

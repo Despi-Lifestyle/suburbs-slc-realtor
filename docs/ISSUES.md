@@ -31,11 +31,11 @@ Discovered during initial code review on March 2, 2026.
 - **Fix**: Created `assets/pdfs/` directory and moved PDF there. Path now resolves correctly.
 
 ### ISS-005: Lead form has no backend
-- **Status**: Open
+- **Status**: PARTIAL — Formspree integrated, awaiting endpoint ID
 - **Phase**: 2
-- **File**: `relocation-guide/index.html` lines 1024-1029
-- **Description**: `handleSubmit()` only hides the form and shows a success message. Data is not sent anywhere — all leads are lost.
-- **Fix**: Integrate a form backend service (Formspree, serverless function, etc.) with Lofty CRM bridge.
+- **File**: `relocation-guide/index.html`
+- **Description**: Form was previously demo-only (`handleSubmit()` faked success). Now wired to Formspree with AJAX submission, name attributes, honeypot spam protection, and redirect to thank-you page.
+- **Remaining**: Replace `YOUR_FORM_ID` placeholder with actual Formspree endpoint ID (Despi action). Then set up Zapier bridge from Formspree to Lofty CRM.
 
 ---
 
@@ -105,7 +105,7 @@ Discovered during initial code review on March 2, 2026.
 | ISS-002 | Critical | 1 | RESOLVED |
 | ISS-003 | Critical | 1 | RESOLVED |
 | ISS-004 | Critical | 1 | RESOLVED |
-| ISS-005 | Critical | 2 | Open |
+| ISS-005 | Critical | 2 | PARTIAL (Formspree wired, needs endpoint ID) |
 | ISS-006 | Medium | 2 | RESOLVED |
 | ISS-007 | Medium | 3 | RESOLVED |
 | ISS-008 | Medium | 2 | RESOLVED (og:image pending) |

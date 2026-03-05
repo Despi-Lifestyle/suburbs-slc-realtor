@@ -1,36 +1,6 @@
 # Architecture & File Structure
 
-## Current State (from Claude Browser export)
-
-This is what was exported — everything is flat in the root with a leftover sandbox path:
-
-```
-/
-├── index.html                          ← Main resource hub
-├── cost-of-living.html                 ← Should be in /free-resources/
-├── first-time-buyer.html               ← Should be in /free-resources/
-├── outdoor-access.html                 ← Should be in /free-resources/
-├── school-districts.html               ← Should be in /free-resources/
-├── seasonal-moving-tips.html           ← Should be in /free-resources/
-├── thank-you.html                      ← Should be in /relocation-guide/
-├── SLC-Suburbs-Relocation-Guide.pdf    ← Should be in /assets/pdfs/
-├── mnt/                                ← SANDBOX ARTIFACT — should not exist
-│   └── user-data/outputs/slc-relocation-resources/
-│       └── relocation-guide/
-│           └── index.html              ← Should be at /relocation-guide/index.html
-└── .DS_Store                           ← Should be gitignored
-```
-
-### What's Broken
-- All links from index.html point to `free-resources/*.html` — but files are in root
-- All sub-pages link back to `../index.html` — but they're in root (not a subfolder)
-- Relocation guide page is in `mnt/` sandbox path
-- thank-you.html links to `../assets/pdfs/` which doesn't exist
-- Cloudflare email-protection code in index.html won't work on Vercel
-
----
-
-## Target State (after reorganization)
+## File Structure
 
 ```
 /
@@ -64,7 +34,7 @@ This is what was exported — everything is flat in the root with a leftover san
 └── README.md (optional)
 ```
 
-### Link Map (after fix)
+### Link Map
 
 | From | Link | To |
 |------|------|----|
@@ -74,10 +44,16 @@ This is what was exported — everything is flat in the root with a leftover san
 | index.html | `free-resources/outdoor-access.html` | free-resources/outdoor-access.html |
 | index.html | `free-resources/school-districts.html` | free-resources/school-districts.html |
 | index.html | `free-resources/seasonal-moving-tips.html` | free-resources/seasonal-moving-tips.html |
+| index.html | `free-resources/suburb-comparison.html` | free-resources/suburb-comparison.html |
+| index.html | `free-resources/market-report.html` | free-resources/market-report.html |
+| index.html | `free-resources/quiz.html` | free-resources/quiz.html |
+| index.html | `free-resources/relocation-planner.html` | free-resources/relocation-planner.html |
 | free-resources/*.html | `../index.html` | index.html |
 | free-resources/*.html | `../relocation-guide/` | relocation-guide/index.html |
 | relocation-guide/index.html | `../index.html` | index.html |
+| relocation-guide/index.html | `thank-you.html` | relocation-guide/thank-you.html (via Formspree AJAX redirect) |
 | relocation-guide/thank-you.html | `../assets/pdfs/SLC-Suburbs-Relocation-Guide.pdf` | assets/pdfs/*.pdf |
+| internal/utm-link-builder.html | — | Not linked from any public page (direct URL access only) |
 
 ---
 
@@ -91,12 +67,18 @@ This is what was exported — everything is flat in the root with a leftover san
 | Fonts | Google Fonts (CDN) | DM Serif Display + Plus Jakarta Sans |
 | Icons | Inline SVGs | No icon library dependency |
 | Hosting | Vercel | Auto-deploys from GitHub |
-| Forms | TBD | Needs to integrate with Lofty CRM |
+| Forms | Formspree (AJAX) | Wired with honeypot spam protection; needs endpoint ID + Zapier → Lofty CRM |
 
 ## Deployment
 
-Vercel with GitHub integration:
+- **Domain**: nataliegriffith.com
+- **Host**: Vercel with GitHub integration
+
 1. Push to `main` branch on GitHub
 2. Vercel auto-detects static site (no framework config needed)
 3. Deploys all HTML files as pages
 4. Directory structure maps directly to URL routes
+
+## Analytics (not yet active)
+
+UTM link builder is ready at `/internal/utm-link-builder.html`. Google Analytics 4 (GA4) needs to be added to all 13 public HTML pages before UTM tracking data will be captured. See the UTM builder's Section 6 for setup instructions.

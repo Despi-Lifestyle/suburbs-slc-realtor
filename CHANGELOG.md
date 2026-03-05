@@ -10,8 +10,7 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 - [ ] Replace `YOUR_FORM_ID` in relocation-guide form with Formspree endpoint
 - [ ] Set up Lofty CRM connection (Zapier bridge from Formspree)
 - [ ] Add agent headshot / og:image (1200x630 branded image)
-- [ ] Replace `BASE_URL` in UTM link builder with production domain
-- [ ] Add GA4 snippet to all pages
+- [ ] Add GA4 snippet to all pages (13 HTML files — see UTM builder Section 6 for instructions)
 - [ ] Generate final PDF from relocation-guide-2026.html
 - [ ] Explore password-protected internal resource section
 

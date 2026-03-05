@@ -1,8 +1,8 @@
 # Product Requirements Document (PRD)
 ## SLC Suburbs Relocation Resource Hub — Natalie Griffith Real Estate
 
-**Version**: 1.1
-**Date**: March 2, 2026
+**Version**: 1.2
+**Date**: March 5, 2026
 **Author**: Despi
 **Status**: Draft
 
@@ -49,15 +49,20 @@ Design and code decisions should keep this scalability in mind — agent name, c
 ## 3. Site Map & Pages
 
 ```
-/                           → Main resource hub (index.html)
-/relocation-guide/          → Lead capture landing page (gated)
-/relocation-guide/thank-you → Post-form confirmation + PDF download
+/                                    → Main resource hub (index.html)
+/relocation-guide/                   → Lead capture landing page (gated)
+/relocation-guide/thank-you          → Post-form confirmation + PDF download
 /free-resources/cost-of-living       → Cost of living snapshot
 /free-resources/first-time-buyer     → Interactive buyer checklist
 /free-resources/outdoor-access       → Outdoor access by suburb
 /free-resources/school-districts     → School district overview
 /free-resources/seasonal-moving-tips → Seasonal moving guide
-/assets/pdfs/               → PDF downloads
+/free-resources/suburb-comparison    → Side-by-side suburb comparison chart
+/free-resources/market-report        → SLC suburbs market report + 2026 forecast
+/free-resources/quiz                 → "Is Utah Right for You?" interactive quiz
+/free-resources/relocation-planner   → Relocation timeline & moving planner (41 tasks)
+/internal/utm-link-builder           → UTM link generator (internal, not public-facing)
+/assets/pdfs/                        → PDF downloads + print-ready HTML guide
 ```
 
 ---
@@ -78,12 +83,11 @@ Design and code decisions should keep this scalability in mind — agent name, c
    - Natalie's Lofty CRM (for follow-up)
    - Despi's tracking system (for analytics/oversight)
 
-**Form Backend Options (to evaluate):**
-- **Formspree** — Simplest setup, free tier (50 subs/month), email notifications, Zapier integration to Lofty
-- **Vercel Serverless Function + API** — Custom, sends to Lofty API directly + emails Despi. More work but more control.
-- **Formspark / Basin** — Similar to Formspree, alternative options
-
-> **Decision needed**: Choose form backend before Phase 2 implementation.
+**Form Backend: Formspree (chosen)**
+- AJAX submission with JSON response handling
+- Honeypot spam protection (`_gotcha` hidden field)
+- Redirects to thank-you page on success with PDF download
+- **Still needed**: Replace `YOUR_FORM_ID` placeholder with real Formspree endpoint ID, then set up Zapier bridge to Lofty CRM
 
 ### 4.2 Free Resources (Ungated)
 - No form required — instant access
@@ -148,37 +152,39 @@ Already established across all pages:
 
 ## 7. Phases & Milestones
 
-### Phase 1: Foundation (Current Sprint)
+### Phase 1: Foundation — COMPLETE
 - [x] Review all assets from Claude browser
 - [x] Create PRD and documentation
-- [ ] Initialize GitHub repo with raw files
-- [ ] Reorganize file structure to match site map
-- [ ] Fix all broken internal links
-- [ ] Remove Cloudflare-specific code
-- [ ] Deploy to Vercel (basic working site)
+- [x] Initialize GitHub repo with raw files
+- [x] Reorganize file structure to match site map
+- [x] Fix all broken internal links (27 links verified)
+- [x] Remove Cloudflare-specific code
+- [x] Deploy to Vercel (basic working site)
 
-### Phase 2: Functionality
-- [ ] Choose and integrate form backend
-- [ ] Set up Lofty CRM integration (or Zapier bridge)
-- [ ] Add localStorage to first-time-buyer checklist
-- [ ] Replace placeholder social links with real URLs
-- [ ] Add Open Graph / social meta tags
-- [ ] Add favicon
-- [ ] Update copyright year to 2026
+### Phase 2: Functionality — COMPLETE
+- [x] Choose and integrate form backend (Formspree with AJAX submit)
+- [ ] Set up Lofty CRM integration (Zapier bridge from Formspree — pending Formspree endpoint ID)
+- [x] Add localStorage to first-time-buyer checklist
+- [x] Replace placeholder social links with real URLs
+- [x] Add Open Graph / social meta tags (og:image pending branded image)
+- [x] Add favicon (SVG, gold house icon)
+- [x] Update copyright year to 2026
 
-### Phase 3: Content Completion
+### Phase 3: Content Completion — MOSTLY COMPLETE
 - [ ] Expand PDF to full 40+ page guide (Despi handles separately)
-- [ ] Build out Suburb Comparison Chart page (currently links to #)
-- [ ] Build out 2025 Market Report page (currently links to #)
-- [ ] Build out Relocation Timeline/Planner page (currently links to #)
+- [x] Build out Suburb Comparison Chart page
+- [x] Build out Market Report page
+- [x] Build out Relocation Timeline/Planner page (41 tasks, 6 phases)
 - [ ] Add Natalie's real headshot to agent section
-- [ ] Add "Is Utah Right for You?" quiz (marked as Coming Soon)
+- [x] Add "Is Utah Right for You?" quiz (10 questions, weighted suburb matching)
 
-### Phase 4: Optimization & Launch
+### Phase 4: Optimization & Launch — IN PROGRESS
 - [ ] Performance audit (Lighthouse)
 - [ ] Final QA across devices
-- [ ] Connect custom domain (if applicable)
+- [ ] Connect custom domain (nataliegriffith.com)
 - [ ] Share links with Natalie for YouTube/social
+- [ ] Add GA4 snippet to all 13 HTML pages
+- [x] Build internal UTM link builder tool
 
 ### Phase 5: Internal Resources & Scalability (Future)
 - [ ] Design password-protected internal resource section for existing clients
@@ -192,13 +198,16 @@ Already established across all pages:
 
 | Item | Location | Status |
 |------|----------|--------|
-| YouTube channel URL | Nav, footer (all pages) | Waiting on Despi |
-| Instagram URL | Footer (index.html) | Waiting on Despi |
-| Natalie's headshot | Agent section (relocation-guide page) | Placeholder shown |
-| Suburb Comparison Chart | index.html card | Links to # (no page built) |
-| 2025 Market Report | index.html card | Links to # (no page built) |
-| Relocation Timeline/Planner | index.html card | Links to # (no page built) |
-| "Is Utah Right for You?" Quiz | index.html card | Marked "Coming Soon" |
+| YouTube channel URL | Nav, footer (all pages) | DONE — linked to @LivingintheSuburbsOfSLC |
+| Instagram URL | Footer (all pages) | DONE — linked to nataliegsuburbspecialistofslc |
+| Natalie's headshot | Agent section (relocation-guide page) | Placeholder hidden (needs real photo) |
+| Suburb Comparison Chart | index.html card | DONE — fully built |
+| Market Report | index.html card | DONE — fully built |
+| Relocation Timeline/Planner | index.html card | DONE — fully built (41 tasks, 6 phases) |
+| "Is Utah Right for You?" Quiz | index.html card | DONE — fully built (10 questions) |
+| og:image | All pages | Pending — needs 1200x630 branded image |
+| Formspree endpoint ID | relocation-guide/index.html | Pending — `YOUR_FORM_ID` placeholder |
+| GA4 measurement ID | All pages | Pending — no analytics snippet installed |
 
 ---
 
@@ -210,7 +219,7 @@ Already established across all pages:
 | Repo | https://github.com/Despi-Lifestyle/suburbs-slc-realtor |
 | Framework | None (static HTML/CSS/JS) |
 | Build Step | None required |
-| Domain | TBD |
+| Domain | nataliegriffith.com |
 | CRM | Lofty (integration TBD) |
 
 ---
