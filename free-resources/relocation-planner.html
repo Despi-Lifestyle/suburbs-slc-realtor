@@ -24,7 +24,7 @@
         .nav-logo svg{width:22px;height:22px;fill:var(--white)}
         .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
         .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
-        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;font-weight:500}
+        .back-link{font-size:0.82rem;color:var(--slate);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:500}
         .back-link:hover{color:var(--gold-dark)}
         .container{max-width:800px;margin:0 auto;padding:0 24px}
         .hero{padding:60px 24px 40px;text-align:center;background:var(--white);border-bottom:1px solid rgba(0,0,0,0.04)}
@@ -66,7 +66,7 @@
         .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--white);padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s}
         .cta-btn:hover{background:var(--gold-dark)}
         .footer{padding:40px 24px;text-align:center;margin-top:60px}
-        .footer p{font-size:0.72rem;color:var(--warm-gray)}
+        .footer p{font-size:0.72rem;color:var(--warm-gray)}.footer a{color:inherit;text-decoration:none}.footer a:hover{color:var(--gold-dark)}.check-content a,.utah-callout a{color:var(--gold-dark);font-weight:600}.check-content a:hover,.utah-callout a:hover{text-decoration:underline}
 
         .download-btn{display:inline-flex;align-items:center;gap:8px;background:var(--charcoal);color:var(--white);padding:12px 24px;border-radius:8px;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;transition:background 0.3s;margin-top:20px}
         .download-btn:hover{background:var(--black)}
@@ -166,7 +166,7 @@
                 </div>
                 <div class="utah-callout">
                     <h4>DLD vs. DMV</h4>
-                    <p>Utah's Driver License Division (DLD) is separate from the Motor Vehicle Division (DMV). You'll visit a DLD office for your license and a DMV office for vehicle registration — plan for two trips. Book DLD appointments online at dld.utah.gov.</p>
+                    <p>Utah's Driver License Division (DLD) is separate from the Motor Vehicle Division (DMV). You'll visit a DLD office for your license and a DMV office for vehicle registration — plan for two trips. Book DLD appointments online at <a href="https://dld.utah.gov" target="_blank" rel="noopener noreferrer">dld.utah.gov</a>.</p>
                 </div>
             </div>
 
@@ -191,17 +191,17 @@
                 <div class="phase-header"><div class="phase-number">5</div><div class="phase-info"><h2>Getting Settled</h2><p>First 2 weeks after your move</p></div></div>
                 <div class="checklist">
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Unpack essentials first</h4><p>Focus on kitchen, bedrooms, and bathrooms. Get beds set up and the kitchen functional before tackling the rest.</p></div></div>
-                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get your Utah driver license</h4><p>Visit a DLD office within 60 days. Bring your current license, proof of identity, Social Security number, and two proofs of Utah residency. Fee is approximately $52. Book appointments at dld.utah.gov.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get your Utah driver license</h4><p>Visit a DLD office within 60 days. Bring your current license, proof of identity, Social Security number, and two proofs of Utah residency. Fee is approximately $52. Book appointments at <a href="https://dld.utah.gov" target="_blank" rel="noopener noreferrer">dld.utah.gov</a>.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Register your vehicle(s)</h4><p>Within 60 days: get a VIN inspection, safety inspection, and emissions inspection (required in Salt Lake County). Bring your out-of-state title, insurance proof, and new Utah license.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Update your vehicle insurance</h4><p>Update your policy to Utah. Minimum liability is 25/65/15 plus $3,000 PIP. Rates may change — compare quotes.</p></div></div>
-                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Register to vote</h4><p>Register online at vote.utah.gov. Utah is a vote-by-mail state — your ballot will be mailed to your registered address.</p></div></div>
-                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Enroll children in school</h4><p>Contact your neighborhood school or district office. You'll need proof of residency, immunization records (check immunize.utah.gov), birth certificate, and previous transcripts.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Register to vote</h4><p>Register online at <a href="https://vote.utah.gov" target="_blank" rel="noopener noreferrer">vote.utah.gov</a>. Utah is a vote-by-mail state — your ballot will be mailed to your registered address.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Enroll children in school</h4><p>Contact your neighborhood school or district office. You'll need proof of residency, immunization records (check <a href="https://immunize.utah.gov" target="_blank" rel="noopener noreferrer">immunize.utah.gov</a>), birth certificate, and previous transcripts.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Find healthcare providers</h4><p>Major systems: Intermountain Health (largest in Utah), University of Utah Health, and Steward Health Care. Primary Children's Hospital is nationally ranked for pediatrics.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Explore your new neighborhood</h4><p>Find the closest Smith's, Harmons, WinCo, or Costco. Locate gas stations, pharmacies, and parks. Introduce yourself to neighbors — Utah communities are welcoming.</p></div></div>
                 </div>
                 <div class="utah-callout">
                     <h4>DLD wait times</h4>
-                    <p>Popular DLD locations like the Draper office can be booked weeks out. Book your appointment online at dld.utah.gov as soon as you arrive. The South Valley (Riverton) and West Valley offices sometimes have shorter waits.</p>
+                    <p>Popular DLD locations like the Draper office can be booked weeks out. Book your appointment online at <a href="https://dld.utah.gov" target="_blank" rel="noopener noreferrer">dld.utah.gov</a> as soon as you arrive. The South Valley (Riverton) and West Valley offices sometimes have shorter waits.</p>
                 </div>
             </div>
 
@@ -209,7 +209,7 @@
             <div class="phase">
                 <div class="phase-header"><div class="phase-number">6</div><div class="phase-info"><h2>Putting Down Roots</h2><p>First 3 months</p></div></div>
                 <div class="checklist">
-                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get a UTA transit pass (if applicable)</h4><p>TRAX light rail connects Sandy, Draper, and Murray to downtown SLC. FrontRunner runs Ogden to Provo. Monthly passes and FAREPAY cards available at rideuta.com.</p></div></div>
+                    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get a UTA transit pass (if applicable)</h4><p>TRAX light rail connects Sandy, Draper, and Murray to downtown SLC. FrontRunner runs Ogden to Provo. Monthly passes and FAREPAY cards available at <a href="https://rideuta.com" target="_blank" rel="noopener noreferrer">rideuta.com</a>.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Get outdoor recreation passes</h4><p>Utah State Parks pass ($75/year), ski season passes (Ikon covers Brighton and Solitude), and familiarize yourself with Big and Little Cottonwood Canyon access.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Join community groups and activities</h4><p>Facebook groups, Nextdoor, city recreation programs, youth sports leagues. Check your city's parks and recreation department for classes and events.</p></div></div>
                     <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="check-content"><h4>Register for city services</h4><p>Trash/recycling schedules, park reservations, recreation center memberships, and library cards. Salt Lake County Library System serves many suburbs.</p></div></div>
@@ -231,7 +231,7 @@
     <div class="print-footer">
         <p>Prepared by Natalie Griffith · Realty One Group Signature South Valley · griffithteamre.com · (801) 949-8634</p>
     </div>
-    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · (801) 949-8634 · natalie@griffithteamre.com</p></footer>
+    <footer class="footer"><p>Natalie Griffith · Realty One Group Signature South Valley · <a href="tel:+18019498634">(801) 949-8634</a> · <a href="mailto:natalie@griffithteamre.com">natalie@griffithteamre.com</a></p></footer>
 
     <script>
         function toggleCheck(el){el.classList.toggle('checked');saveProgress();updateProgress()}
