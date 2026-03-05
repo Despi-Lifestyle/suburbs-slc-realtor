@@ -121,6 +121,10 @@
             .comp-table th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
             .profile-stats{-webkit-print-color-adjust:exact;print-color-adjust:exact}
             .insider-tip{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            .note-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            .comp-table tr:nth-child(even){-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            .cost-row .bar-fill,.cost-row .bar-track{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+            .cover-logo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
         }
     </style>
 </head>
@@ -260,7 +264,7 @@
     <table class="comp-table">
         <thead><tr><th>Suburb</th><th>Median Price</th><th>$/SqFt</th><th>Commute</th><th>School District</th><th>Walk Score</th><th>Best For</th></tr></thead>
         <tbody>
-            <tr><td class="suburb-name">Millcreek</td><td class="price">$645K</td><td>$260</td><td>10-15 min</td><td>Granite</td><td>46</td><td>Young professionals, closest to downtown</td></tr>
+            <tr><td class="suburb-name">Millcreek</td><td class="price">$645K</td><td>$260</td><td>10-15 min</td><td>Granite / Canyons</td><td>46</td><td>Young professionals, closest to downtown</td></tr>
             <tr><td class="suburb-name">Herriman</td><td class="price">$575K</td><td>$210</td><td>35 min</td><td>Jordan</td><td>13</td><td>Best value, new construction</td></tr>
             <tr><td class="suburb-name">Riverton</td><td class="price">$620K</td><td>$225</td><td>30 min</td><td>Jordan</td><td>26</td><td>Small-town community feel</td></tr>
             <tr><td class="suburb-name">Sandy</td><td class="price">$665K</td><td>$261</td><td>20 min</td><td>Canyons / Jordan</td><td>35</td><td>Best all-around suburb</td></tr>
@@ -268,7 +272,7 @@
             <tr><td class="suburb-name">Bluffdale</td><td class="price">$700K</td><td>$230</td><td>30 min</td><td>Jordan</td><td>15</td><td>Space, larger lots, equestrian</td></tr>
             <tr><td class="suburb-name">Holladay</td><td class="price">$768K</td><td>$290</td><td>15 min</td><td>Granite / Canyons</td><td>36</td><td>Walkable village, boutique dining</td></tr>
             <tr><td class="suburb-name">Draper</td><td class="price">$830K</td><td>$257</td><td>20-25 min</td><td>Canyons</td><td>17</td><td>Premium, Silicon Slopes, trails</td></tr>
-            <tr><td class="suburb-name">Cottonwood Hts</td><td class="price">$856K</td><td>$295</td><td>20 min</td><td>Canyons</td><td>41</td><td>Ski canyon access, mountain views</td></tr>
+            <tr><td class="suburb-name">Cottonwood Hts</td><td class="price">$856K</td><td>$295</td><td>20 min</td><td>Canyons / Granite</td><td>41</td><td>Ski canyon access, mountain views</td></tr>
         </tbody>
     </table>
 
@@ -464,7 +468,7 @@
     <div class="profile-stats">
         <div class="profile-stat"><strong>34,000+</strong>Population</div>
         <div class="profile-stat"><strong>$856,000</strong>Median home price</div>
-        <div class="profile-stat"><strong>Canyons School District</strong>School district</div>
+        <div class="profile-stat"><strong>Canyons / Granite</strong>School district</div>
         <div class="profile-stat"><strong>8-9 out of 10</strong>School rating</div>
         <div class="profile-stat"><strong>20 minutes</strong>Drive to downtown SLC</div>
         <div class="profile-stat"><strong>Brighton / Solitude (20 min)</strong>Nearest ski resort</div>
@@ -550,7 +554,7 @@
     <div class="profile-stats">
         <div class="profile-stat"><strong>60,000+</strong>Population</div>
         <div class="profile-stat"><strong>$645,000</strong>Median home price</div>
-        <div class="profile-stat"><strong>Granite School District</strong>School district</div>
+        <div class="profile-stat"><strong>Granite / Canyons</strong>School district</div>
         <div class="profile-stat"><strong>7-8 out of 10</strong>School rating</div>
         <div class="profile-stat"><strong>10-15 minutes</strong>Drive to downtown SLC</div>
         <div class="profile-stat"><strong>Brighton / Solitude (30 min)</strong>Nearest ski resort</div>
@@ -641,7 +645,7 @@
         <div class="profile-stat"><strong>30 minutes</strong>Drive to downtown SLC</div>
         <div class="profile-stat"><strong>Brighton / Solitude (40 min)</strong>Nearest ski resort</div>
         <div class="profile-stat"><strong>$230/sqft</strong>Price per square foot</div>
-        <div class="profile-stat"><strong>~15</strong>Walk Score</div>
+        <div class="profile-stat"><strong>15</strong>Walk Score</div>
     </div>
 
     <h3 class="section-head">The Neighborhood</h3>
@@ -676,7 +680,7 @@
     <h2 class="ch-title">School District <em>Comparison</em></h2>
     <div class="ch-divider"></div>
 
-    <p class="body-text">Four main school districts serve the nine suburbs in this guide. Which district you're in can significantly impact your home's value and your children's educational experience. Here's what you need to know.</p>
+    <p class="body-text">Three main school districts serve the nine suburbs in this guide. Which district you're in can significantly impact your home's value and your children's educational experience. Here's what you need to know.</p>
 
     <div class="district-box no-break">
         <h3>Canyons School District</h3>
