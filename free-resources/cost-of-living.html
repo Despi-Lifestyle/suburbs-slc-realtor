@@ -65,6 +65,7 @@
         .suburb-cost-row:nth-child(even){background:var(--light-warm)}
         .suburb-cost-row .name{font-weight:600;color:var(--black)}
         .suburb-cost-row .value{color:var(--slate)}
+        @media(max-width:640px){.suburb-cost-header,.suburb-cost-row{grid-template-columns:1fr 1fr;gap:4px 12px;font-size:0.8rem}.suburb-cost-header span:nth-child(3),.suburb-cost-header span:nth-child(4),.suburb-cost-row .value:nth-child(3),.suburb-cost-row .value:nth-child(4){display:none}}
         .cta-section{text-align:center;padding:48px 24px;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,0.05)}
         .cta-section h2{font-family:var(--font-display);font-size:1.4rem;margin-bottom:8px}
         .cta-section p{color:var(--warm-gray);font-size:0.9rem;margin-bottom:24px}
@@ -96,7 +97,7 @@
                 <div class="big-number"><div class="number">3.6%</div><div class="label">Lower than national average overall</div></div>
                 <div class="big-number"><div class="number">$525K</div><div class="label">Median home price (SLC suburbs)</div></div>
                 <div class="big-number"><div class="number">$1,650</div><div class="label">Average monthly rent (2BR)</div></div>
-                <div class="big-number"><div class="number">4.85%</div><div class="label">State income tax (flat rate)</div></div>
+                <div class="big-number"><div class="number">4.65%</div><div class="label">State income tax (flat rate)</div></div>
             </div>
 
             <div class="section-label reveal">Category Breakdown</div>
@@ -105,7 +106,7 @@
 
             <div class="comparison-grid">
                 <div class="cost-card reveal">
-                    <div class="cost-card-header"><h3>Housing</h3><span class="cost-card-badge badge-similar">At Average</span></div>
+                    <div class="cost-card-header"><h3>Housing</h3><span class="cost-card-badge badge-higher">Above Average</span></div>
                     <div class="cost-bars">
                         <div class="cost-bar-item"><label><span>Utah (SLC suburbs)</span><span>$525K median</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:72%"></div></div></div>
                         <div class="cost-bar-item"><label><span>National Average</span><span>$430K median</span></label><div class="cost-bar-track"><div class="cost-bar-fill bar-utah" style="width:60%;opacity:0.4"></div></div></div>
