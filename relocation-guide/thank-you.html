@@ -22,10 +22,8 @@
         .nav{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:16px 24px}
         .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
         .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
-        .nav-logo{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center}
-        .nav-logo svg{width:22px;height:22px;fill:var(--white)}
-        .nav-brand-name{font-family:var(--font-display);font-size:1.1rem}
-        .nav-brand-sub{font-size:0.7rem;color:var(--warm-gray);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+        .nav-logo{display:flex;align-items:center}
+        .nav-logo img{height:48px;width:auto}
         .main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px}
         .card{background:var(--white);border-radius:20px;padding:56px 48px;max-width:560px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04)}
         .success-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:scaleIn 0.5s ease both}
@@ -53,8 +51,7 @@
     <nav class="nav">
         <div class="nav-inner">
             <a href="../index.html" class="nav-brand">
-                <div class="nav-logo"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></div>
-                <div><div class="nav-brand-name">Natalie Griffith</div><div class="nav-brand-sub">Real Estate Team</div></div>
+                <div class="nav-logo"><img src="../assets/images/logo.svg" alt="Natalie Griffith Real Estate Team"></div>
             </a>
         </div>
     </nav>
