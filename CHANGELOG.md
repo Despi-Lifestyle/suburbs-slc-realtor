@@ -7,6 +7,7 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 ## [Unreleased]
 
 ### Added
+- Google Analytics 4 tracking snippet (G-7EDCK398MY) added to all 14 HTML pages
 - "Get to Know You" intake form landing page at `/get-to-know-you/`
   - Branded multi-section form: Contact Info, Your Move, Family & Lifestyle, Home Preferences, Attribution
   - Wired to Formspree endpoint `mlgpjlln` with AJAX submit + success state
@@ -17,7 +18,7 @@ All notable changes to the SLC Suburbs Relocation Resource Hub.
 - [ ] Replace `YOUR_FORM_ID` in relocation-guide form with Formspree endpoint
 - [ ] Set up Lofty CRM connection (Zapier bridge from Formspree)
 - [ ] Add agent headshot / og:image (1200x630 branded image)
-- [ ] Add GA4 snippet to all pages (14 HTML files now — see UTM builder Section 6 for instructions)
+- [x] ~~Add GA4 snippet to all pages (14 HTML files now — see UTM builder Section 6 for instructions)~~
 - [ ] Generate final PDF from relocation-guide-2026.html
 - [ ] Explore password-protected internal resource section
 
